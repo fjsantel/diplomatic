@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Diplomatic Chile — Propuesta de sitio web</title>
+<style>doc-page:not(:defined){visibility:hidden}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0D1F3C;--blue:#1A3A6B;--accent:#2D7DD2;--tint:#E8EDF5;--text:#374151;--muted:#9CA3AF}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);font-size:13.5px;line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--navy);margin:0 0 8px;letter-spacing:-0.01em}
+h1{font-size:34px;font-weight:700}
+h2{font-size:20px;font-weight:600;margin-top:32px}
+h3{font-size:15px;font-weight:600;margin-top:20px}
+p{margin:0 0 10px}
+.eyebrow{font:600 10px/1 'Plus Jakarta Sans';letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+.cover-meta{font:500 11px/1.5 'JetBrains Mono';color:var(--muted);margin-top:24px}
+.divider{height:1px;background:var(--tint);margin:24px 0;border:none}
+.callout{background:var(--tint);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 4px 4px 0;margin:16px 0;break-inside:avoid}
+.callout p{margin:0;font-size:13px}
+.callout b{color:var(--navy)}
+.step-list{list-style:none;margin:16px 0;padding:0;counter-reset:step}
+.step-list li{counter-increment:step;display:grid;grid-template-columns:28px 1fr;gap:12px;margin-bottom:14px;break-inside:avoid}
+.step-list li::before{content:counter(step);font:700 15px/1 'Fraunces';color:var(--accent)}
+.step-list b{color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+th{text-align:left;font:600 10px/1 'Plus Jakarta Sans';letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:0 8px 8px;border-bottom:1px solid var(--tint)}
+td{padding:9px 8px;border-bottom:1px solid var(--tint);vertical-align:top}
+.tag{display:inline-block;font:600 10px/1 'JetBrains Mono';padding:3px 7px;border-radius:3px;background:var(--tint);color:var(--navy)}
+.pill{display:inline-block;font:600 10px/1 'Plus Jakarta Sans';padding:4px 9px;border-radius:999px;background:rgba(45,125,210,0.1);color:var(--accent);margin-right:6px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.card{background:#fff;border:1px solid var(--tint);border-radius:6px;padding:14px;break-inside:avoid}
+.card h3{margin-top:0;font-size:14px}
+.card p{font-size:12.5px;margin-bottom:0}
+.price-hero{background:var(--navy);color:#fff;border-radius:8px;padding:24px;margin:16px 0;break-inside:avoid}
+.price-hero .amt{font:700 40px/1 'Fraunces';letter-spacing:-0.02em}
+.price-hero .lbl{font:500 11px/1.4 'Plus Jakarta Sans';color:rgba(255,255,255,0.65);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;display:block}
+.price-hero .note{font-size:12.5px;color:rgba(255,255,255,0.75);margin-top:10px}
+.foot{font:500 10px/1 'JetBrains Mono';color:var(--muted);text-align:center;margin-top:6px}
+.page-break{break-before:page}
+.free{color:#16A34A;font-weight:600}
+.paid{color:#DC2626;font-weight:600}
+</style>
+</head>
+<body>
+<doc-page size="letter" margin="0.85in">
+
+<span class="eyebrow">Diplomatic Chile · Propuesta</span>
+<h1>Nuevo sitio web — Propuesta general</h1>
+<p style="color:var(--muted);font-size:14px;margin-top:4px">Qué trae el diseño, qué falta implementar, y cuánto debería costar el desarrollo.</p>
+<div class="cover-meta">Julio 2026 · diplomatic.cl</div>
+
+<hr class="divider"/>
+
+<h2>1. Resumen ejecutivo</h2>
+<p>El sitio actual destruye la credibilidad de una empresa con 9 años de operación, clientes de primer nivel (JLL, Colliers, Accor) y un diferenciador único en el mercado — el IMDI. Esta propuesta reemplaza un diseño sobrecargado por una web sobria, jerárquica y orientada a conversión, construida sobre el contenido que la empresa ya tiene listo.</p>
+<div class="callout">
+<p><b>El diseño ya está resuelto.</b> Este documento presenta un prototipo de alta fidelidad, navegable, con la home completa y un módulo adicional de encuesta de satisfacción (NPS). Lo que resta es implementación técnica — no investigación ni diseño desde cero.</p>
+</div>
+
+<h2>2. Qué trae el diseño</h2>
+<div class="grid3">
+<div class="card"><h3>Home · un solo scroll</h3><p>Hero → diferenciadores → servicios → IMDI → testimonios → nosotros → CTA. Cada sección comunica un solo mensaje.</p></div>
+<div class="card"><h3>Identidad visual</h3><p>Paleta navy/azul/acento, tipografía Fraunces + Plus Jakarta Sans, componentes documentados (botones, tarjetas, formularios).</p></div>
+<div class="card"><h3>IMDI como lead magnet</h3><p>Mockup interactivo del informe mensual — la pieza que cierra ventas frente a un prospecto indeciso.</p></div>
+<div class="card"><h3>Formulario de cotización</h3><p>4 campos máximo, validación en línea, estado de confirmación. Sin fricción.</p></div>
+<div class="card"><h3>Encuesta NPS</h3><p>Módulo nuevo: mide lealtad de clientes, con panel interno y guía de uso para el equipo.</p></div>
+<div class="card"><h3>Mobile-first</h3><p>Diseñado primero en 390px — el 70% del tráfico llega desde el teléfono.</p></div>
+</div>
+
+<h2>3. Qué falta implementar</h2>
+<table>
+<tr><th>Elemento</th><th>Detalle</th></tr>
+<tr><td>5 páginas de servicio</td><td>Aseo oficinas, áreas comunes, limpieza vertical, hotelería, sanitización — cada una con SEO técnico desde el inicio.</td></tr>
+<tr><td>Páginas de confianza</td><td>Nosotros, IMDI (detalle), Clientes, Formación — con fotografía real.</td></tr>
+<tr><td>Blog / Recursos</td><td>4 artículos iniciales para captar tráfico informacional.</td></tr>
+<tr><td>Fotografía real</td><td>Equipo en terreno, espacios servidos, Leonardo López. Reemplaza los placeholders actuales.</td></tr>
+<tr><td>Backend de formularios</td><td>Cotización y NPS conectados a un sistema real (Sheets o CRM).</td></tr>
+<tr><td>SEO técnico</td><td>Sitemap, schema JSON-LD, Open Graph, Search Console, GA4.</td></tr>
+<tr><td>Migración de dominio</td><td>DNS de diplomatic.cl apuntado al nuevo sitio en producción.</td></tr>
+</table>
+
+<h2 class="page-break">4. Qué puede ser gratis vs. qué hay que pagar</h2>
+<div class="grid2">
+<div class="card">
+<h3><span class="free">● Gratuito</span></h3>
+<p>Hosting (Vercel, plan gratuito) · Formularios vía Google Sheets/Forms · GA4 + Search Console · Fuentes (Google Fonts) · Encuesta NPS sin suscripción</p>
+</div>
+<div class="card">
+<h3><span class="paid">● Con costo</span></h3>
+<p>Dominio .cl (~$12.000 CLP/año, ya lo tienen) · Fotografía profesional del equipo · Desarrollo del sitio · Mantención mensual si no hay alguien interno</p>
+</div>
+</div>
+
+<h2>5. Cuánto debería costar</h2>
+<p>Para 11 páginas con diseño a medida, SEO técnico real y stack Next.js — el rango correcto de mercado (Chile, 2026) para un desarrollo de esta calidad es:</p>
+
+<div class="price-hero">
+<span class="lbl">Rango recomendado</span>
+<span class="amt">$1.500.000 – $2.500.000 CLP</span>
+<p class="note">Freelancer o agencia senior. El diseño y los textos ya están resueltos en el brief — el trabajo restante es implementación técnica, no research desde cero.</p>
+</div>
+
+<table>
+<tr><th>Rango</th><th>Qué incluye normalmente</th><th>Recomendación</th></tr>
+<tr><td>$300.000 – $500.000</td><td>Plantilla adaptada, sin SEO real, sin fotografía propia</td><td class="paid">Evitar</td></tr>
+<tr><td>$1.500.000 – $2.500.000</td><td>Freelancer senior, diseño ya resuelto, implementación técnica completa</td><td class="free">Recomendado</td></tr>
+<tr><td>$2.000.000 – $4.000.000</td><td>Agencia: diseño desde cero, CRM, SEO, soporte extendido</td><td>Si se quiere agencia con soporte</td></tr>
+</table>
+
+<h3>Costos recurrentes a presupuestar aparte</h3>
+<ul style="margin:8px 0 8px 18px;padding:0">
+<li style="margin-bottom:6px">Dominio: ~$12.000 CLP/año</li>
+<li style="margin-bottom:6px">Hosting: gratis en Vercel para este tamaño de sitio</li>
+<li>Mantención: desde ~$90.000 CLP/mes si se delega a una agencia (no imprescindible con Next.js/Vercel si hay alguien interno)</li>
+</ul>
+
+<h2>6. Próximos pasos sugeridos</h2>
+<ol class="step-list">
+<li><b>Conseguir 3 testimonios nominados</b> con nombre, cargo y empresa — antes de escribir una línea de código.</li>
+<li><b>Sesión de fotografía real</b> del equipo, espacios servidos y Leonardo López.</li>
+<li><b>Aprobar la home</b> — este prototipo — antes de desarrollar páginas internas.</li>
+<li><b>Desarrollar las 5 páginas de servicio</b> con SEO técnico desde el inicio.</li>
+<li><b>Páginas de confianza</b>: Nosotros, IMDI, Clientes, Formación.</li>
+<li><b>Migrar DNS</b> una vez el sitio esté aprobado en staging.</li>
+<li><b>Configurar GA4 + Search Console</b> el mismo día del lanzamiento.</li>
+</ol>
+
+<hr class="divider"/>
+<p class="foot">Diplomatic Chile SPA · RUT 76.903.656-3 · Documento generado para presentación interna</p>
+
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>

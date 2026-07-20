@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>IMDI — Cómo funciona</title>
+<style>doc-page:not(:defined){visibility:hidden}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0D1F3C;--blue:#1A3A6B;--accent:#2D7DD2;--tint:#E8EDF5;--text:#374151;--muted:#9CA3AF}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);font-size:13.5px;line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--navy);margin:0 0 8px;letter-spacing:-0.01em}
+h1{font-size:34px;font-weight:700}
+h2{font-size:20px;font-weight:600;margin-top:32px}
+h3{font-size:15px;font-weight:600;margin-top:20px}
+p{margin:0 0 10px}
+.eyebrow{font:600 10px/1 'Plus Jakarta Sans';letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+.cover-meta{font:500 11px/1.5 'JetBrains Mono';color:var(--muted);margin-top:24px}
+.divider{height:1px;background:var(--tint);margin:24px 0;border:none}
+.callout{background:var(--tint);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 4px 4px 0;margin:16px 0;break-inside:avoid}
+.callout p{margin:0;font-size:13px}
+.callout b{color:var(--navy)}
+.step-list{list-style:none;margin:16px 0;padding:0;counter-reset:step}
+.step-list li{counter-increment:step;display:grid;grid-template-columns:28px 1fr;gap:12px;margin-bottom:14px;break-inside:avoid}
+.step-list li::before{content:counter(step);font:700 15px/1 'Fraunces';color:var(--accent)}
+.step-list b{color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+th{text-align:left;font:600 10px/1 'Plus Jakarta Sans';letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:0 8px 8px;border-bottom:1px solid var(--tint)}
+td{padding:9px 8px;border-bottom:1px solid var(--tint);vertical-align:top}
+.tag{display:inline-block;font:600 10px/1 'JetBrains Mono';padding:3px 7px;border-radius:3px;background:var(--tint);color:var(--navy)}
+.diagram{display:flex;align-items:center;gap:8px;margin:16px 0;flex-wrap:wrap;break-inside:avoid}
+.diagram .box{background:#fff;border:1px solid var(--tint);border-radius:4px;padding:10px 14px;font:600 11px/1.3 'Plus Jakarta Sans';color:var(--navy);text-align:center;flex:1;min-width:100px}
+.diagram .arrow{color:var(--accent);font-size:16px}
+.foot{font:500 10px/1 'JetBrains Mono';color:var(--muted);text-align:center;margin-top:6px}
+</style>
+</head>
+<body>
+<doc-page size="letter" margin="0.85in">
+
+<span class="eyebrow">Diplomatic Chile · Documento interno</span>
+<h1>El IMDI — cómo funciona</h1>
+<p style="color:var(--muted);font-size:14px;margin-top:4px">Informe Mensual Diplomatic: el diferenciador central del servicio, y cómo se representa en el sitio web.</p>
+<div class="cover-meta">Mayo 2026 · diplomatic.cl</div>
+
+<hr class="divider"/>
+
+<h2>1. Qué es</h2>
+<p>El IMDI es el informe que Diplomatic entrega a cada cliente los primeros días de cada mes, sin que lo pidan. Es un documento sintético e interactivo que resume todo lo ocurrido en la instalación durante el período — no es un reporte comercial, es la operación medida y firmada.</p>
+<p>Es el diferenciador más fuerte del portafolio: ningún competidor directo en el segmento de aseo industrial en Santiago ofrece algo equivalente. Por eso el brief lo trata como "lead magnet" — la pieza que cierra ventas cuando un prospecto todavía duda.</p>
+
+<h2>2. Qué incluye cada informe</h2>
+<table>
+<tr><th>Sección</th><th>Contenido</th></tr>
+<tr><td class="tag">01</td><td><b>Resumen de actividades</b> del período, desglosado por área y turno.</td></tr>
+<tr><td class="tag">02</td><td><b>Estado de activos y maquinaria</b>, incluyendo reposiciones y mantenciones aplicadas.</td></tr>
+<tr><td class="tag">03</td><td><b>Novedades del personal asignado</b>: licencias, reemplazos, formación del equipo.</td></tr>
+<tr><td class="tag">04</td><td><b>Incidencias y soluciones aplicadas</b>, con fecha y responsable de cada una.</td></tr>
+<tr><td class="tag">05</td><td><b>Indicadores de calidad</b> medidos por zona (oficinas, baños, cocinas, lobby, etc).</td></tr>
+<tr><td class="tag">06</td><td><b>Programas especiales</b> ejecutados durante el mes (limpiezas profundas, sanitizaciones extra).</td></tr>
+</table>
+
+<h2>3. Cómo se genera y entrega — flujo operativo</h2>
+<ol class="step-list">
+<li><b>Durante el mes:</b> líderes de grupo registran actividades, incidencias y checklists en terreno.</li>
+<li><b>Cierre de mes:</b> Operaciones consolida los datos por cliente/instalación en el formato IMDI.</li>
+<li><b>Primeros días del mes siguiente:</b> el informe se envía por email junto con el contacto de gerencia (l.lopez@diplomatic.cl) — sin que el cliente lo solicite.</li>
+<li><b>Complemento (nuevo):</b> el mismo envío incluye el enlace a la Encuesta de Satisfacción (NPS), aprovechando que el cliente ya está revisando el servicio con atención.</li>
+<li><b>Uso del cliente:</b> el gerente de edificio o administrador audita el servicio con datos concretos, sin depender de la palabra del proveedor.</li>
+</ol>
+
+<div class="callout">
+<p><b>Por qué funciona como herramienta de venta:</b> reemplaza la "confianza ciega" típica del rubro por evidencia verificable. En ventas, se muestra un mockup del informe a un prospecto para que entienda el valor antes de firmar contrato.</p>
+</div>
+
+<h2>4. Cómo se representa en el sitio web</h2>
+<p>En el home, la sección IMDI ocupa el rol de <b>lead magnet</b> dentro del arco narrativo de la página (después de Servicios, antes de Testimonios en el orden "Framework"). Su estructura:</p>
+<div class="diagram">
+<div class="box">Mockup del informe<br/>(izquierda)</div>
+<div class="arrow">→</div>
+<div class="box">Copy: qué es,<br/>qué incluye, cuándo llega</div>
+<div class="arrow">→</div>
+<div class="box">CTA: "Solicitar<br/>un IMDI de ejemplo"</div>
+</div>
+<p>El mockup no es un screenshot real (no se cuenta con uno todavía) sino una representación fiel del formato: KPIs de cobertura, barras de indicadores de calidad por zona, y una lista de novedades — construida con los mismos datos de ejemplo que describe este documento.</p>
+
+<h2>5. Conexión con la Encuesta NPS</h2>
+<p>El prototipo de Encuesta de Satisfacción (NPS) se diseñó para enganchar directamente con el ciclo del IMDI:</p>
+<ul style="margin:8px 0 8px 18px;padding:0">
+<li style="margin-bottom:6px"><b>Cadencia relacional:</b> la encuesta se adjunta al mismo correo mensual del IMDI — mismo momento, mismo contexto.</li>
+<li style="margin-bottom:6px"><b>Cadencia transaccional:</b> tras una visita puntual o el cierre de una incidencia, se dispara por QR en sitio o WhatsApp.</li>
+<li><b>Panel interno:</b> el puntaje NPS por cliente se revisa junto con el IMDI en la reunión operacional mensual — ambos alimentan la misma conversación de cuenta.</li>
+</ul>
+
+<h2>6. Qué falta para producción</h2>
+<table>
+<tr><th>Elemento</th><th>Estado</th></tr>
+<tr><td>Screenshot o mockup real del informe</td><td>Pendiente — reemplazar el mockup ilustrativo por una captura real</td></tr>
+<tr><td>Automatización del envío mensual</td><td>Manual hoy; automatizable con un sistema simple de plantillas + Sheets</td></tr>
+<tr><td>Formato interactivo real</td><td>Por definir: PDF enriquecido vs. página web privada por cliente</td></tr>
+</table>
+
+<hr class="divider"/>
+<p class="foot">Diplomatic Chile SPA · RUT 76.903.656-3 · Documento generado para revisión interna</p>
+
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>
