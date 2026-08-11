@@ -1,4 +1,89 @@
 // === NPS — Dashboard interno (mockup) + Guía de uso + opciones de backend ===
+
+const MES_LABELS = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+const claveMes = (fecha) => { const d = new Date(fecha); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`; };
+const segmento = (p) => p >= 9 ? 'promoter' : p >= 7 ? 'passive' : 'detractor';
+
+// calcularNPS: agrega respuestas {cliente, puntaje, fecha} en las métricas del panel.
+function calcularNPS(respuestas) {
+  const total = respuestas.length;
+  if (!total) {
+    return { promoters: 0, passives: 0, detractors: 0, score: 0, trend: 0, porMes: [], porCliente: [] };
+  }
+
+  const promotersN = respuestas.filter(r => segmento(r.puntaje) === 'promoter').length;
+  const passivesN  = respuestas.filter(r => segmento(r.puntaje) === 'passive').length;
+  const detractorsN = respuestas.filter(r => segmento(r.puntaje) === 'detractor').length;
+  const promoters = Math.round((promotersN/total)*100);
+  const passives  = Math.round((passivesN/total)*100);
+  const detractors = 100 - promoters - passives; // evita desajuste por redondeo
+  const score = promoters - detractors;
+
+  // Agrupar por mes (YYYY-MM), ordenado cronológicamente
+  const mesesMap = {};
+  respuestas.forEach(r => {
+    const k = claveMes(r.fecha);
+    if (!mesesMap[k]) mesesMap[k] = [];
+    mesesMap[k].push(r.puntaje);
+  });
+  const clavesOrdenadas = Object.keys(mesesMap).sort();
+  const porMes = clavesOrdenadas.map(k => {
+    const puntajes = mesesMap[k];
+    const t = puntajes.length;
+    const p = Math.round((puntajes.filter(s => segmento(s)==='promoter').length/t)*100);
+    const pa = Math.round((puntajes.filter(s => segmento(s)==='passive').length/t)*100);
+    const d = 100 - p - pa;
+    const [y, m] = k.split('-');
+    return { m: MES_LABELS[parseInt(m,10)-1], p, pa, d };
+  });
+
+  // Trend: score de este mes vs. mes anterior (por NPS de esos meses, no del set completo)
+  const scoreDe = (puntajes) => {
+    const t = puntajes.length;
+    const p = (puntajes.filter(s=>segmento(s)==='promoter').length/t)*100;
+    const d = (puntajes.filter(s=>segmento(s)==='detractor').length/t)*100;
+    return Math.round(p-d);
+  };
+  let trend = 0;
+  if (clavesOrdenadas.length >= 2) {
+    const actual = scoreDe(mesesMap[clavesOrdenadas[clavesOrdenadas.length-1]]);
+    const anterior = scoreDe(mesesMap[clavesOrdenadas[clavesOrdenadas.length-2]]);
+    trend = actual - anterior;
+  }
+
+  // Por cliente: última respuesta + comparación con la anterior de ese mismo cliente
+  const porClienteMap = {};
+  respuestas.forEach(r => {
+    if (!porClienteMap[r.cliente]) porClienteMap[r.cliente] = [];
+    porClienteMap[r.cliente].push(r);
+  });
+  const porCliente = Object.keys(porClienteMap).map(nombre => {
+    const hist = porClienteMap[nombre].slice().sort((a,b) => new Date(a.fecha) - new Date(b.fecha));
+    const ultimo = hist[hist.length-1];
+    const previo = hist[hist.length-2];
+    let trendCliente = 'flat';
+    if (previo) {
+      if (ultimo.puntaje > previo.puntaje) trendCliente = 'up';
+      else if (ultimo.puntaje < previo.puntaje) trendCliente = 'down';
+    }
+    return { name: nombre, score: ultimo.puntaje, trend: trendCliente };
+  });
+
+  return { promoters, passives, detractors, score, trend, porMes, porCliente };
+}
+window.calcularNPS = calcularNPS;
+
+// Datos de prueba: ~40 respuestas repartidas en 6 meses y 6 clientes, con
+// variación intencional para poder chequear que porMes/porCliente/trend cuadran.
+const RESPUESTAS_PRUEBA = [
+  {cliente:'JLL', puntaje:8, fecha:'2025-12-05'}, {cliente:'JLL', puntaje:9, fecha:'2026-01-06'}, {cliente:'JLL', puntaje:9, fecha:'2026-02-04'}, {cliente:'JLL', puntaje:9, fecha:'2026-03-05'}, {cliente:'JLL', puntaje:10, fecha:'2026-04-07'}, {cliente:'JLL', puntaje:9, fecha:'2026-05-06'},
+  {cliente:'Colliers International', puntaje:7, fecha:'2025-12-10'}, {cliente:'Colliers International', puntaje:7, fecha:'2026-01-09'}, {cliente:'Colliers International', puntaje:8, fecha:'2026-02-08'}, {cliente:'Colliers International', puntaje:8, fecha:'2026-03-10'}, {cliente:'Colliers International', puntaje:8, fecha:'2026-04-09'}, {cliente:'Colliers International', puntaje:8, fecha:'2026-05-08'},
+  {cliente:'Grupo Security', puntaje:8, fecha:'2025-12-12'}, {cliente:'Grupo Security', puntaje:9, fecha:'2026-01-11'}, {cliente:'Grupo Security', puntaje:9, fecha:'2026-02-10'}, {cliente:'Grupo Security', puntaje:9, fecha:'2026-03-12'}, {cliente:'Grupo Security', puntaje:9, fecha:'2026-04-11'}, {cliente:'Grupo Security', puntaje:9, fecha:'2026-05-10'},
+  {cliente:'Accor', puntaje:7, fecha:'2025-12-15'}, {cliente:'Accor', puntaje:6, fecha:'2026-01-14'}, {cliente:'Accor', puntaje:6, fecha:'2026-02-13'}, {cliente:'Accor', puntaje:5, fecha:'2026-03-15'}, {cliente:'Accor', puntaje:6, fecha:'2026-04-14'}, {cliente:'Accor', puntaje:6, fecha:'2026-05-13'},
+  {cliente:'Grupo Patio', puntaje:8, fecha:'2025-12-18'}, {cliente:'Grupo Patio', puntaje:8, fecha:'2026-01-17'}, {cliente:'Grupo Patio', puntaje:9, fecha:'2026-02-16'}, {cliente:'Grupo Patio', puntaje:9, fecha:'2026-03-18'}, {cliente:'Grupo Patio', puntaje:9, fecha:'2026-04-17'}, {cliente:'Grupo Patio', puntaje:9, fecha:'2026-05-16'},
+  {cliente:'GeoSinergia', puntaje:6, fecha:'2025-12-20'}, {cliente:'GeoSinergia', puntaje:7, fecha:'2026-01-19'}, {cliente:'GeoSinergia', puntaje:6, fecha:'2026-02-18'}, {cliente:'GeoSinergia', puntaje:7, fecha:'2026-03-20'}, {cliente:'GeoSinergia', puntaje:7, fecha:'2026-04-19'}, {cliente:'GeoSinergia', puntaje:7, fecha:'2026-05-18'},
+];
+
 function ScoreDonut({promoters, passives, detractors}) {
   const total = promoters + passives + detractors;
   const pPct = Math.round((promoters/total)*100);
@@ -19,19 +104,10 @@ function ScoreDonut({promoters, passives, detractors}) {
   );
 }
 
-const TREND = [
-  {m:'Dic', p:55, pa:30, d:15},
-  {m:'Ene', p:58, pa:28, d:14},
-  {m:'Feb', p:54, pa:31, d:15},
-  {m:'Mar', p:61, pa:27, d:12},
-  {m:'Abr', p:64, pa:26, d:10},
-  {m:'May', p:67, pa:24, d:9},
-];
-
-function TrendChart() {
+function TrendChart({porMes}) {
   return (
     <div className="trend-chart">
-      {TREND.map(t => (
+      {porMes.map(t => (
         <div className="trend-bar" key={t.m}>
           <div className="seg" style={{height: t.p+'%', background:'#16A34A'}}></div>
           <div className="seg" style={{height: t.pa+'%', background:'#F59E0B'}}></div>
@@ -43,27 +119,18 @@ function TrendChart() {
   );
 }
 
-const CLIENTS = [
-  {name:'JLL', score:9, trend:'up'},
-  {name:'Colliers International', score:8, trend:'flat'},
-  {name:'Grupo Security', score:9, trend:'up'},
-  {name:'Accor', score:6, trend:'down'},
-  {name:'Grupo Patio', score:9, trend:'up'},
-  {name:'GeoSinergia', score:7, trend:'flat'},
-];
-
 function segTag(score) {
   if (score >= 9) return 'promoter';
   if (score >= 7) return 'passive';
   return 'detractor';
 }
 
-function ClientTable() {
+function ClientTable({porCliente}) {
   return (
     <table className="client-table">
       <thead><tr><th>Cliente</th><th>Puntaje</th><th>Tendencia</th></tr></thead>
       <tbody>
-        {CLIENTS.map(c => (
+        {porCliente.map(c => (
           <tr key={c.name}>
             <td className="co">{c.name}</td>
             <td><span className={'score-tag ' + segTag(c.score)}>{c.score}/10</span></td>
@@ -99,26 +166,30 @@ function ActionLog() {
 }
 
 function NPSDashboard() {
+  // En producción, respuestas vendría de la base/backend real de la encuesta.
+  // Por ahora: array de prueba (RESPUESTAS_PRUEBA) para validar que los cálculos cuadran.
+  const { promoters, passives, detractors, score, trend, porMes, porCliente } = calcularNPS(RESPUESTAS_PRUEBA);
+
   return (
     <div className="dash-grid">
       <div className="dash-card">
-        <h4>Puntaje general · últimos 6 meses</h4>
+        <h4>Puntaje general · últimos {porMes.length} meses</h4>
         <div className="score-hero">
-          <span className="num">58</span>
-          <span className="delta">↑ +9 pts</span>
+          <span className="num">{score}</span>
+          <span className="delta">{trend >= 0 ? '↑' : '↓'} {trend >= 0 ? '+' : ''}{trend} pts</span>
         </div>
         <div className="ctx">NPS = % Promotores − % Detractores · benchmark B2B servicios ≈ 30-40</div>
-        <TrendChart />
+        <TrendChart porMes={porMes} />
       </div>
 
       <div className="dash-card">
         <h4>Distribución actual</h4>
-        <ScoreDonut promoters={67} passives={24} detractors={9} />
+        <ScoreDonut promoters={promoters} passives={passives} detractors={detractors} />
       </div>
 
       <div className="dash-card">
         <h4>Por cliente</h4>
-        <ClientTable />
+        <ClientTable porCliente={porCliente} />
       </div>
 
       <div className="dash-card">

@@ -2,9 +2,12 @@
 
 /* ---------- Logo ---------- */
 const Logo = ({onDark=false}) => (
-  <a href="#top" className="logo" style={onDark ? {color: '#fff'} : null} aria-label="Diplomatic Chile">
-    <span className="logo-mark" style={onDark ? {background: '#fff', color: 'var(--navy)'} : null}>D</span>
-    <span>Diplomatic <span style={{opacity:0.55, fontWeight: 500, fontFamily: 'var(--f-sans)'}}>Chile</span></span>
+  <a href="#top" className="logo" style={onDark ? {color: '#fff'} : null} aria-label="Diplomatic Chile — Servicios de aseo industrial profesional">
+    <img src="uploads/logo-gota.png" alt="" className="logo-mark-img" />
+    <span className="logo-text">
+      <span className="logo-name logo-name-mont">Diplomatic <span style={{opacity:0.55, fontWeight: 700}}>Chile</span></span>
+      <span className="logo-tagline" style={onDark ? {color: 'rgba(255,255,255,0.55)'} : null}>Servicios de aseo industrial profesional</span>
+    </span>
   </a>
 );
 window.Logo = Logo;
@@ -12,7 +15,7 @@ window.Logo = Logo;
 /* ---------- Header / Nav ---------- */
 const NAV_LINKS = [
   {label: 'Servicios', href: '#servicios'},
-  {label: 'IMDI',      href: '#imdi'},
+  {label: 'Galería',   href: '#galeria'},
   {label: 'Clientes',  href: '#clientes'},
   {label: 'Nosotros',  href: '#nosotros'},
   {label: 'Contacto',  href: '#contacto'},
@@ -85,13 +88,37 @@ const Header = () => {
 };
 window.Header = Header;
 
+/* ---------- Hero image carousel (fades right-side photos, masks into navy) ---------- */
+const HERO_PHOTOS = [
+  'uploads/foto-fachada-rappel-cielo.png',
+  'uploads/foto-lobby-equipo-carro.png',
+  'uploads/foto-cocina-vapor-pistola.png',
+  'uploads/foto-fachada-andamio.png',
+];
+const HeroCarousel = () => {
+  const [i, setI] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setI(v => (v + 1) % HERO_PHOTOS.length), 5200);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="hero-carousel" aria-hidden="true">
+      {HERO_PHOTOS.map((src, idx) => (
+        <img key={src} src={src} alt="" className={'hero-carousel-slide' + (idx === i ? ' active' : '')} />
+      ))}
+      <div className="hero-carousel-fade"></div>
+    </div>
+  );
+};
+window.HeroCarousel = HeroCarousel;
+
 /* ---------- Hero ---------- */
 const Hero = ({heroVariant='balanced'}) => {
   // Variants: 'balanced' (default), 'invisible' (manifesto), 'specific' (data-first)
   const variants = {
     balanced: {
-      h1: <>Aseo profesional que <em>no se nota</em>.<br/>Y por eso funciona.</>,
-      sub: 'Servicio integral para oficinas, edificios, hoteles y fachadas en Santiago. Operación 24/7 con respaldo de personal de apoyo y seguros por 5.000 UF.',
+      h1: <>Cuidamos espacios. <em>Creamos experiencias.</em></>,
+      sub: 'En Diplomatic desarrollamos soluciones integrales de Facility Services y aseo industrial profesional para organizaciones que exigen altos estándares de calidad, seguridad y continuidad operacional.',
     },
     invisible: {
       h1: <>El aseo debería ser <em>invisible</em>. Si te preocupa, algo está fallando.</>,
@@ -107,10 +134,7 @@ const Hero = ({heroVariant='balanced'}) => {
   return (
     <section className="hero" id="top">
       <div className="hero-grid"></div>
-      <div className="hero-shapes" aria-hidden="true">
-        <div className="hero-shape arch"></div>
-        <div className="hero-shape circle"></div>
-      </div>
+      <HeroCarousel />
       <div className="container hero-inner">
         <div>
           <div className="hero-meta">
@@ -121,11 +145,11 @@ const Hero = ({heroVariant='balanced'}) => {
           <p className="hero-sub">{v.sub}</p>
           <div className="hero-ctas">
             <a className="btn btn-primary on-dark cta-standout" href="#contacto">
-              Solicitar cotización
+              Solicitar Cotización
               <Icon.Arrow/>
             </a>
-            <a className="btn btn-secondary on-dark" href="#imdi">
-              Ver ejemplo de IMDI
+            <a className="btn btn-secondary on-dark" href="#contacto">
+              Agendar una Reunión
             </a>
           </div>
         </div>
@@ -148,6 +172,140 @@ const Hero = ({heroVariant='balanced'}) => {
   );
 };
 window.Hero = Hero;
+
+/* ---------- Más que un proveedor ---------- */
+const MoreThanProvider = () => (
+  <section className="section provider-section" style={{paddingTop: 0}}>
+    <div className="provider-photo-band">
+      <img src="uploads/foto-gorra-uniforme-fade.jpg" alt="Uniforme y gorra con la marca Diplomatic Chile" />
+    </div>
+    <div className="container">
+      <div className="provider-copy">
+        <span className="eyebrow">Nuestra propuesta</span>
+        <h2 className="h2 mt-32">Más que un proveedor</h2>
+        <p className="lead muted mt-24">
+          En Diplomatic entendemos que un espacio limpio no solo proyecta una buena imagen: protege la operación, mejora la experiencia de las personas y fortalece la confianza. Por eso combinamos personal especializado, supervisión permanente, procesos estandarizados y mejora continua para entregar soluciones confiables y adaptadas a cada cliente.
+        </p>
+      </div>
+    </div>
+  </section>
+);
+window.MoreThanProvider = MoreThanProvider;
+
+/* ---------- Proceso / Cómo trabajamos ---------- */
+const PROCESO_STEPS = ['Diagnóstico','Plan Operacional','Implementación','Supervisión','Control de Calidad','Indicadores','Mejora Continua'];
+const PROCESO_COLORS = ['#0D1F3C','#15294F','#1A3A6B','#20406e','#1A3A6B','#15294F','#0D1F3C'];
+
+function buildStringArt() {
+  const N = 10;
+  const pad = 40, size = 400;
+  const axisLen = size - pad * 2;
+  const lines = [];
+  for (let i = 0; i < N; i++) {
+    const vx = pad, vy = pad + (i / (N - 1)) * axisLen;
+    const hx = pad + ((N - 1 - i) / (N - 1)) * axisLen, hy = size - pad;
+    const len = Math.hypot(hx - vx, hy - vy);
+    lines.push({x1: vx, y1: vy, x2: hx, y2: hy, len});
+  }
+  lines.sort((a, b) => a.len - b.len);
+  return lines;
+}
+const STRING_LINES = buildStringArt();
+
+const Proceso = () => {
+  const [idx, setIdx] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setIdx(v => (v + 1) % PROCESO_STEPS.length), 2200);
+    return () => clearInterval(id);
+  }, []);
+  const pct = (idx / (PROCESO_STEPS.length - 1)) * 100;
+  return (
+    <section className="proceso-section" style={{background: PROCESO_COLORS[idx]}}>
+      <div className="container proceso-layout">
+        <div className="proceso-copy">
+          <div className="proceso-head">
+            <span className="eyebrow on-dark">Metodología</span>
+            <span className="proceso-h1">Cómo trabajamos</span>
+          </div>
+          <div className="proceso-labels">
+            {PROCESO_STEPS.map((s, i) => (
+              <div key={s} className={'proceso-label' + (i === idx ? ' current' : '')}>{s}</div>
+            ))}
+          </div>
+          <div className="proceso-track">
+            <div className="proceso-fill" style={{width: pct + '%'}}></div>
+            <div className="proceso-dot" style={{left: pct + '%'}}></div>
+          </div>
+        </div>
+        <div className="proceso-orbit" aria-hidden="true">
+          <svg viewBox="0 0 400 400">
+            <g className="orbit-spin">
+              {STRING_LINES.map((l, i) => (
+                <line key={i} className={'orbit-ring' + (i <= Math.round((idx / (PROCESO_STEPS.length - 1)) * (STRING_LINES.length - 1)) ? ' revealed' : '')} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}/>
+              ))}
+              {STRING_LINES.map((l, i) => (
+                <React.Fragment key={'d'+i}>
+                  <circle className="orbit-dot" cx={l.x1} cy={l.y1} r="3"/>
+                  <circle className="orbit-dot" cx={l.x2} cy={l.y2} r="3"/>
+                </React.Fragment>
+              ))}
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+  );
+};
+window.Proceso = Proceso;
+
+/* ---------- Values keyword ticker ---------- */
+const VALUES_LIST = ['Compromiso','Calidad','Seguridad','Innovación','Trabajo en equipo','Orientación al cliente','Mejora continua'];
+const ValuesTicker = () => (
+  <div className="values-ticker">
+    <div className="values-track">
+      {[...VALUES_LIST, ...VALUES_LIST, ...VALUES_LIST].map((v, i) => (
+        <span key={i} className="values-item">{v}<span className="values-dot">•</span></span>
+      ))}
+    </div>
+  </div>
+);
+window.ValuesTicker = ValuesTicker;
+
+/* ---------- Commercial banners carousel ---------- */
+const BANNER_IMAGES = [
+  'uploads/banner-viviendas.jpg',
+  'uploads/banner-oficinas-cafeterias.jpg',
+  'uploads/banner-hoteleria.jpg',
+  'uploads/banner-fachadas.jpg',
+  'uploads/banner-areas-comunes.jpg',
+  'uploads/banner-alimentos-bebidas.jpg',
+  'uploads/banner-estacionamientos.jpg',
+  'uploads/banner-alfombras.jpg',
+];
+const BannerCarousel = () => {
+  const [i, setI] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setI(v => (v + 1) % BANNER_IMAGES.length), 5000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <section className="section banner-carousel-section">
+      <div className="container">
+        <div className="banner-carousel">
+          {BANNER_IMAGES.map((src, idx) => (
+            <img key={src} src={src} alt="" className={'banner-carousel-slide' + (idx === i ? ' active' : '')} />
+          ))}
+          <div className="gallery-dots" role="tablist" aria-label="Seleccionar imagen">
+            {BANNER_IMAGES.map((_, idx) => (
+              <button key={idx} className={'gallery-dot' + (idx === i ? ' active' : '')} onClick={() => setI(idx)} aria-label={'Ver imagen ' + (idx + 1)}></button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+window.BannerCarousel = BannerCarousel;
 
 /* ---------- Client logo band ---------- */
 const CLIENTS = ['JLL', 'Colliers International', 'Accor', 'Grupo Patio', 'Grupo Security', 'Hotel Cumbres', 'REALSA', 'GeoSinergia', 'Alonso', 'DAG', 'Diversur', 'HOME TEC', 'SADE'];
@@ -215,11 +373,13 @@ window.Differentiators = Differentiators;
 
 /* ---------- Services ---------- */
 const SERVICES = [
-  {n: '01', title: 'Aseo de oficinas', desc: 'Espacios corporativos con cobertura diaria y protocolo medible.', href: '/aseo-oficinas-santiago/'},
-  {n: '02', title: 'Áreas comunes en edificios', desc: 'Pasillos, lobbies y estacionamientos en residenciales y comerciales.', href: '/aseo-areas-comunes-edificios/'},
-  {n: '03', title: 'Limpieza vertical de fachadas', desc: 'Trabajo en altura certificado. Resultado verificable antes/después.', href: '/limpieza-vertical-fachadas/'},
-  {n: '04', title: 'Aseo hotelero', desc: 'Estándares internacionales. Operación silenciosa frente a huéspedes.', href: '/aseo-hoteleria-profesional/'},
-  {n: '05', title: 'Sanitización y desinfección', desc: 'Productos certificados. Certificado de sanitización al término.', href: '/sanitizacion-desinfeccion-empresas/'},
+  {n: '01', title: 'Áreas comunes', desc: 'Espacios de alto tránsito en condiciones óptimas: limpieza, presentación y continuidad operacional.', href: null},
+  {n: '02', title: 'Oficinas', desc: 'Ambientes limpios y seguros que favorecen la productividad y la imagen corporativa.', href: null},
+  {n: '03', title: 'Housekeeping', desc: 'Personal especializado para hoteles con foco en calidad, rapidez y experiencia del huésped.', href: 'servicio-housekeeping.html'},
+  {n: '04', title: 'Steward', desc: 'Apoyo operativo para cocinas y Alimentos & Bebidas, manteniendo higiene y continuidad del servicio.', href: null},
+  {n: '05', title: 'Fachadas', desc: 'Limpieza profesional de fachadas y vidrios mediante procedimientos seguros.', href: 'servicio-fachadas.html'},
+  {n: '06', title: 'Alfombras', desc: 'Limpieza profunda que prolonga la vida útil de las superficies y mejora la presentación.', href: null},
+  {n: '07', title: 'Estacionamientos', desc: 'Lavado mecanizado y limpieza integral para una mejor experiencia de ingreso.', href: null},
 ];
 
 const Services = ({servicesVariant='cards'}) => {
@@ -229,48 +389,33 @@ const Services = ({servicesVariant='cards'}) => {
         <div className="section-head centered">
           <div>
             <span className="eyebrow">Servicios</span>
-            <h2 className="h2 mt-32">Cinco frentes. Una sola operación.</h2>
+            <h2 className="h2 mt-32">Siete frentes de aseo industrial.</h2>
           </div>
           <div className="head-aside">
             <p className="lead muted">Cada servicio entrega un resultado verificable. Sin paquetes ambiguos.</p>
           </div>
         </div>
-
-        {servicesVariant === 'list' ? (
-          <div className="svc-list">
-            {SERVICES.map(s => (
-              <a key={s.n} className="svc-row" href={s.href}>
-                <span className="svc-row-num">{s.n}</span>
-                <div>
-                  <div className="svc-row-title">{s.title}</div>
-                  <div className="svc-row-desc">{s.desc}</div>
-                </div>
-                <span className="svc-row-arr"><Icon.Arrow/></span>
-              </a>
-            ))}
-          </div>
-        ) : (
-          <div className="svc-grid">
-            <article className="svc-card featured">
-              <span className="svc-num">{SERVICES[0].n}</span>
-              <h3>{SERVICES[0].title}</h3>
-              <p>El servicio principal: cobertura diaria con líder de grupo dedicado, protocolo medible y reporte mensual incluido.</p>
-              <a className="svc-link" href={SERVICES[0].href}>
-                Ver servicio <Icon.Arrow size={14}/>
-              </a>
-            </article>
-            {SERVICES.slice(1).map(s => (
-              <article className="svc-card" key={s.n}>
-                <span className="svc-num">{s.n}</span>
+        <div className="svc-tile-grid">
+          {SERVICES.map(s => (
+            s.href ? (
+              <a key={s.n} className="svc-tile" href={s.href}>
+                <span className="svc-tile-num">{s.n}</span>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
-                <a className="svc-link" href={s.href}>
-                  Ver servicio <Icon.Arrow size={14}/>
-                </a>
-              </article>
-            ))}
-          </div>
-        )}
+                <span className="svc-tile-link">Ver servicio <Icon.Arrow size={14}/></span>
+              </a>
+            ) : (
+              <div key={s.n} className="svc-tile is-static">
+                <span className="svc-tile-num">{s.n}</span>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            )
+          ))}
+        </div>
+        <div className="svc-viewall">
+          <a className="btn btn-secondary" href="Servicios.html">Ver todos los servicios e industrias <Icon.Arrow/></a>
+        </div>
       </div>
     </section>
   );
@@ -330,6 +475,43 @@ const Testimonials = () => (
 );
 window.Testimonials = Testimonials;
 
+/* ---------- Gallery / Carousel ---------- */
+const GALLERY_PHOTOS = [
+  {src: 'uploads/foto-lobby-equipo-carro.png', alt: 'Equipo Diplomatic trabajando en lobby de hotel'},
+  {src: 'uploads/foto-fachada-rappel-cielo.png', alt: 'Limpieza vertical de fachada en altura'},
+  {src: 'uploads/foto-cocina-vapor-pistola.png', alt: 'Sanitización a vapor en cocina industrial'},
+  {src: 'uploads/foto-estacionamiento-fregadora.png', alt: 'Lavado de estacionamiento con fregadora industrial'},
+  {src: 'uploads/foto-lobby-mesa-centro.png', alt: 'Limpieza de áreas comunes en edificio corporativo'},
+  {src: 'uploads/foto-equipo-oficina-sonriendo.png', alt: 'Equipo Diplomatic en oficina corporativa'},
+  {src: 'uploads/foto-cocina-lavado-vajilla.png', alt: 'Lavado de vajilla en cocina de hotelería'},
+  {src: 'uploads/foto-fachada-andamio.png', alt: 'Limpieza de fachada con andamio'},
+];
+
+const Gallery = () => {
+  const [i, setI] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setI(v => (v + 1) % GALLERY_PHOTOS.length), 4800);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <section className="section" id="galeria">
+      <div className="container">
+        <div className="gallery-carousel">
+          {GALLERY_PHOTOS.map((p, idx) => (
+            <img key={p.src} src={p.src} alt={p.alt} className={'gallery-slide' + (idx === i ? ' active' : '')} />
+          ))}
+          <div className="gallery-dots" role="tablist" aria-label="Seleccionar foto">
+            {GALLERY_PHOTOS.map((_, idx) => (
+              <button key={idx} className={'gallery-dot' + (idx === i ? ' active' : '')} onClick={() => setI(idx)} aria-label={'Ver foto ' + (idx + 1)}></button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+window.Gallery = Gallery;
+
 /* ---------- IMDI section ---------- */
 const IMDISection = ({prominent = false}) => (
   <section className={'section imdi-section' + (prominent ? ' imdi-prominent' : '')} id="imdi">
@@ -379,6 +561,10 @@ window.IMDISection = IMDISection;
 /* ---------- About ---------- */
 const About = ({compact = false}) => (
   <section className={'section about-section' + (compact ? ' about-compact' : '')} id="nosotros">
+    <div className="about-top">
+    <div className="about-photo-bleed" aria-label="Leonardo López, fundador de Diplomatic Chile">
+      <img src="uploads/foto-trabajador-recortado.png" alt="Leonardo López, fundador de Diplomatic Chile" />
+    </div>
     <div className="container">
       <div className="section-head centered">
         <div>
@@ -390,13 +576,7 @@ const About = ({compact = false}) => (
         </div>
       </div>
       <div className="about-grid">
-        <div className="about-photo" aria-label="Foto pendiente del equipo o de Leonardo López">
-          <span className="placeholder-tag">FOTO · LEONARDO LÓPEZ</span>
-          <div className="photo-meta">
-            <div className="who">Leonardo López</div>
-            <div className="role">Director · Diplomatic Chile</div>
-          </div>
-        </div>
+        <div className="about-photo-spacer" aria-hidden="true"></div>
         <div>
           <p className="about-quote">
             Las empresas focalizadas rinden más que aquellas que afrontan responsabilidades anexas o paralelas.
@@ -406,7 +586,7 @@ const About = ({compact = false}) => (
           {compact ? (
             <div className="about-tldr">
               <p className="lead" style={{marginBottom: 24}}>
-                Diplomatic Chile nace en 2017 con un foco único: aseo industrial profesional. Operación B2B en Santiago para oficinas, edificios, hotelería y fachadas — con equipo formado internamente, IMDI mensual y respaldo de 5.000 UF en seguros.
+                Somos una empresa chilena especializada en servicios de aseo industrial profesional y Facility Services. Trabajamos junto a empresas, hoteles, edificios corporativos, centros comerciales e instituciones que buscan un aliado estratégico para mantener espacios seguros, eficientes y preparados para recibir a quienes los utilizan cada día.
               </p>
               <div className="about-pills">
                 <span className="pill"><b>2017</b> Año de fundación</span>
@@ -430,6 +610,19 @@ const About = ({compact = false}) => (
               </div>
             </div>
           )}
+        </div>
+      </div>
+    </div>
+    </div>
+    <div className="mv-band">
+      <div className="container mv-grid">
+        <div className="mv-card">
+          <span className="mv-label">Misión</span>
+          <p>Entregar soluciones integrales de limpieza profesional que contribuyan a la continuidad operacional de nuestros clientes mediante personas capacitadas, supervisión permanente y una cultura de mejora continua.</p>
+        </div>
+        <div className="mv-card">
+          <span className="mv-label">Visión</span>
+          <p>Ser una de las empresas de Facility Services más reconocidas de Chile por la calidad de nuestro servicio, la innovación y la confianza que construimos con nuestros clientes.</p>
         </div>
       </div>
     </div>

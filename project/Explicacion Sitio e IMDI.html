@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Diplomatic Chile — El sitio y el modelo IMDI</title>
+<style>doc-page:not(:defined){visibility:hidden}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0D1F3C;--blue:#1A3A6B;--accent:#2D7DD2;--tint:#E8EDF5;--text:#374151;--muted:#9CA3AF}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);font-size:13.5px;line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',serif;color:var(--navy);margin:0 0 8px;letter-spacing:-0.01em}
+h1{font-size:32px;font-weight:700}
+h2{font-size:19px;font-weight:600;margin-top:30px}
+h3{font-size:14.5px;font-weight:600;margin-top:18px}
+p{margin:0 0 10px}
+.eyebrow{font:600 10px/1 'Plus Jakarta Sans';letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+.cover-meta{font:500 11px/1.5 'JetBrains Mono';color:var(--muted);margin-top:24px}
+.divider{height:1px;background:var(--tint);margin:22px 0;border:none}
+.callout{background:var(--tint);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 4px 4px 0;margin:16px 0;break-inside:avoid}
+.callout p{margin:0;font-size:13px}
+.callout b{color:var(--navy)}
+.step-list{list-style:none;margin:14px 0;padding:0;counter-reset:step}
+.step-list li{counter-increment:step;display:flex;align-items:baseline;gap:12px;margin-bottom:12px;break-inside:avoid}
+.step-list li::before{content:counter(step);font:700 15px/1 'Fraunces';color:var(--accent);flex:0 0 auto;width:20px}
+.step-list li>span{flex:1 1 auto;min-width:0}
+.step-list b{color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12.5px}
+th{text-align:left;font:600 10px/1 'Plus Jakarta Sans';letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:0 8px 8px;border-bottom:1px solid var(--tint)}
+td{padding:8px 8px;border-bottom:1px solid var(--tint);vertical-align:top}
+.tag{display:inline-block;font:600 10px/1 'JetBrains Mono';padding:3px 7px;border-radius:3px;background:var(--tint);color:var(--navy)}
+.grid3{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.grid3 .card{flex:1 1 calc(33.333% - 7px);min-width:150px}
+.grid2{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.grid2 .card{flex:1 1 calc(50% - 5px);min-width:180px}
+.card{background:#fff;border:1px solid var(--tint);border-radius:6px;padding:13px;break-inside:avoid;box-sizing:border-box}
+.card h3{margin-top:0;font-size:13.5px}
+.card p{font-size:12px;margin-bottom:0}
+.loop{display:flex;align-items:center;gap:6px;margin:16px 0;flex-wrap:wrap;break-inside:avoid}
+.loop .box{background:#fff;border:1px solid var(--tint);border-radius:4px;padding:10px 12px;font:600 11px/1.3 'Plus Jakarta Sans';color:var(--navy);text-align:center;flex:1;min-width:110px}
+.loop .arrow{color:var(--accent);font-size:15px}
+.thesis{background:var(--navy);color:#fff;border-radius:8px;padding:22px 24px;margin:16px 0;break-inside:avoid}
+.thesis p{margin:0;font:600 italic 17px/1.5 'Fraunces';color:#fff}
+.foot{font:500 10px/1 'JetBrains Mono';color:var(--muted);text-align:center;margin-top:6px}
+.page-break{break-before:page}
+ul.plain{margin:8px 0 8px 18px;padding:0}
+ul.plain li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<doc-page size="letter" margin="0.85in">
+
+<span class="eyebrow">Diplomatic Chile · Documento explicativo</span>
+<h1>El sitio web y el modelo IMDI</h1>
+<p style="color:var(--muted);font-size:14px;margin-top:4px">Cómo la nueva web y el Informe Mensual Diplomatic trabajan juntos para que el servicio de aseo se ajuste — mes a mes — a lo que cada cliente realmente necesita.</p>
+<div class="cover-meta">Julio 2026 · diplomatic.cl · Documento elaborado por Francisco Santelices Ariztía</div>
+
+<hr class="divider"/>
+
+<h2>1. De qué trata este documento</h2>
+<p>Diplomatic Chile está renovando su sitio web. El diseño ya está resuelto (ver <i>Propuesta de Sitio Web</i>); lo que este documento explica es <b>por qué el sitio está construido alrededor del IMDI</b> — el Informe Mensual Diplomatic — y cómo ese informe, combinado con la encuesta de satisfacción (NPS), es el mecanismo real que permite ofrecerle a cada cliente un servicio ajustado a su instalación, y no un paquete genérico de aseo.</p>
+
+<div class="thesis">
+<p>"El sitio no vende una lista de servicios. Vende evidencia de que el servicio se ajusta solo, mes a mes, a lo que cada edificio necesita."</p>
+</div>
+
+<h2>2. El problema que resuelve la web nueva</h2>
+<p>Diplomatic opera desde 2017, tiene clientes de primer nivel (JLL, Colliers, Accor, Grupo Security) y un diferenciador que ningún competidor directo replica: el IMDI. El sitio actual no comunica nada de eso — diseño sobrecargado, sin jerarquía, sin un mensaje central. El contenido de valor existe; el diseño lo ocultaba.</p>
+<div class="grid2">
+<div class="card"><h3>Antes</h3><p>Sitio saturado, sin CTA claro, sin testimonios nominados, sin mención visible del IMDI. Un visitante no entiende por qué elegir Diplomatic sobre cualquier otra empresa de aseo.</p></div>
+<div class="card"><h3>Después</h3><p>Un solo scroll con una historia: quiénes son → por qué ellos → qué hacen → quién los usa → <b>qué reciben además (IMDI)</b> → hay personas reales → cómo contactar.</p></div>
+</div>
+
+<h2>3. Qué es el IMDI</h2>
+<p>El IMDI es el informe que Diplomatic entrega a cada cliente los primeros días de cada mes, <b>sin que lo pidan</b>. No es un reporte comercial ni un catálogo de servicios: es la operación del mes anterior, medida y documentada.</p>
+<table>
+<tr><th>Sección del informe</th><th>Qué mide</th></tr>
+<tr><td class="tag">01</td><td><b>Resumen de actividades</b> del período, por área y turno.</td></tr>
+<tr><td class="tag">02</td><td><b>Estado de activos y maquinaria</b>: reposiciones y mantenciones aplicadas.</td></tr>
+<tr><td class="tag">03</td><td><b>Novedades del personal</b>: licencias, reemplazos, formación del equipo.</td></tr>
+<tr><td class="tag">04</td><td><b>Incidencias y soluciones</b>, con fecha y responsable de cada una.</td></tr>
+<tr><td class="tag">05</td><td><b>Indicadores de calidad</b> por zona: oficinas, baños, cocinas, lobby.</td></tr>
+<tr><td class="tag">06</td><td><b>Programas especiales</b> ejecutados: limpiezas profundas, sanitizaciones extra.</td></tr>
+</table>
+<p>Es contenido específico y verificable — exactamente lo opuesto a las frases genéricas que el brief de la web prohíbe explícitamente ("comprometidos con la excelencia", "soluciones integrales a medida"). El IMDI reemplaza esas frases con datos.</p>
+
+<h2 class="page-break">4. Por qué esto es "la mejor forma de ofrecer un producto adecuado"</h2>
+<p>Una empresa de aseo B2B típica vende un contrato fijo: mismas tareas, misma frecuencia, mismo precio, todo el año — sin importar si cambian las necesidades del edificio. Diplomatic hace algo distinto: usa el IMDI como <b>instrumento de calibración</b>, no solo de reporte. El informe le muestra a Diplomatic (y al cliente) dónde el servicio actual sobra, dónde falta, y dónde conviene un programa especial — mes a mes, con datos reales de esa instalación específica.</p>
+
+<div class="loop">
+<div class="box">Servicio en terreno<br/>(checklists diarios)</div>
+<div class="arrow">→</div>
+<div class="box">IMDI<br/>(medición mensual)</div>
+<div class="arrow">→</div>
+<div class="box">Encuesta NPS<br/>(percepción del cliente)</div>
+<div class="arrow">→</div>
+<div class="box">Ajuste del programa<br/>de aseo del mes siguiente</div>
+</div>
+
+<p>Este ciclo es lo que convierte un servicio genérico en uno "adecuado": Diplomatic no le pregunta al cliente qué quiere una vez al firmar el contrato — se lo pregunta, con datos, todos los meses. Es el mismo principio que aparece en la carta de presentación de la empresa: <i>"las empresas focalizadas rinden más […] que aquellas que afrontan responsabilidades anexas o paralelas"</i> — el IMDI es la herramienta que mantiene esa evaluación enfocada y periódica en vez de esporádica. Este modelo solo funciona si se ejecuta con consistencia en cada instalación — la sección 8 analiza ese riesgo y cómo mitigarlo.</p>
+
+<h2>5. Cómo se genera y entrega — flujo operativo</h2>
+<ol class="step-list">
+<li><span><b>Durante el mes:</b> líderes de grupo registran actividades, incidencias y checklists en terreno.</span></li>
+<li><span><b>Cierre de mes:</b> Operaciones consolida los datos por cliente/instalación en el formato IMDI.</span></li>
+<li><span><b>Primeros días del mes siguiente:</b> el informe se envía por email junto con el contacto de gerencia — sin que el cliente lo solicite.</span></li>
+<li><span><b>Mismo envío:</b> se adjunta el enlace a la Encuesta de Satisfacción (NPS), aprovechando que el cliente ya está revisando el servicio con atención.</span></li>
+<li><span><b>Cierre del ciclo:</b> el gerente de edificio audita el servicio con datos concretos, y Diplomatic ajusta el programa del mes siguiente según lo que el IMDI y el NPS muestran.</span></li>
+</ol>
+
+<div class="callout">
+<p><b>Por qué también funciona como herramienta de venta:</b> reemplaza la "confianza ciega" típica del rubro por evidencia verificable. Frente a un prospecto indeciso, mostrar un IMDI de ejemplo demuestra el ajuste continuo antes de que exista un contrato — no hay que confiar en la promesa, se puede ver el método.</p>
+</div>
+
+<h2 class="page-break">6. Cómo se representa esto en el sitio web</h2>
+<p>En la home, la sección IMDI ocupa el rol de <b>lead magnet</b>: aparece después de Servicios y antes de Testimonios, como el momento en que el visitante entiende "qué reciben además" de la limpieza en sí.</p>
+<div class="grid3">
+<div class="card"><h3>Mockup del informe</h3><p>Representación fiel del formato — KPIs de cobertura, indicadores por zona, lista de novedades — a la izquierda de la sección.</p></div>
+<div class="card"><h3>Copy explicativo</h3><p>Qué es, qué incluye, cuándo llega. Sin adjetivos vacíos — mismo criterio de contenido que rige todo el sitio.</p></div>
+<div class="card"><h3>CTA de cierre</h3><p>"Solicitar un IMDI de ejemplo" — convierte la curiosidad del prospecto en un contacto calificado.</p></div>
+</div>
+<p>La Encuesta NPS, diseñada como módulo nuevo del sitio, se conecta directamente con este ciclo: se dispara en cadencia relacional (junto al IMDI mensual) y en cadencia transaccional (tras una visita puntual, por QR o WhatsApp). El puntaje NPS por cliente se revisa junto con el IMDI en la reunión operacional mensual — ambos alimentan la misma conversación de cuenta, y esa conversación es lo que define el "producto adecuado" del mes siguiente.</p>
+
+<h2>7. Qué falta para que el ciclo esté completo en producción</h2>
+<table>
+<tr><th>Elemento</th><th>Estado</th></tr>
+<tr><td>Screenshot o mockup real del informe</td><td>Pendiente — hoy es una representación ilustrativa del formato</td></tr>
+<tr><td>Automatización del envío mensual</td><td>Manual hoy; automatizable con plantillas + hoja de cálculo</td></tr>
+<tr><td>Formato interactivo definitivo</td><td>Por definir: PDF enriquecido vs. página web privada por cliente</td></tr>
+<tr><td>3 testimonios nominados</td><td>Pendiente — nombre, cargo, empresa. Requisito antes de desarrollar la home</td></tr>
+<tr><td>Fotografía real del equipo</td><td>Pendiente — reemplaza los placeholders del prototipo</td></tr>
+</table>
+
+<h2 class="page-break">8. Nota de análisis — riesgo operativo y costo del IMDI</h2>
+<div class="callout">
+<p><b>Observación de Francisco Santelices Ariztía:</b> el IMDI, tal como está descrito en el sitio actual de Diplomatic, implica capacitar a alguien del equipo en cada edificio para registrar información cada vez que se realiza un trabajo. Eso puede volverse complicado de sostener a medida que crece el número de instalaciones — no es evidente que sea recomendable tal como está planteado.</p>
+</div>
+<p><b>Mi lectura:</b> la observación es correcta y conviene tomarla en serio antes de comprometer el IMDI como estándar para todos los clientes. El diferenciador solo vale lo que vale su ejecución: un informe completo en algunas instalaciones y superficial en otras es peor que no tener informe, porque rompe la promesa de evidencia que el sitio hace. El riesgo no es conceptual — el modelo es bueno — sino de <b>escalamiento operativo</b>: capacitar y sostener a una persona por edificio no crece bien.</p>
+<p><b>Cómo mitigarlo sin descartar el modelo:</b></p>
+<ul class="plain">
+<li><b>No capacitar para "escribir un informe" — capacitar para llenar un checklist.</b> Diplomatic ya usa checklists e inspecciones periódicas como parte de su operación actual (ver carta de presentación). Si el registro en terreno se limita a marcar campos estructurados y no a redactar texto libre, la curva de capacitación por edificio baja considerablemente.</li>
+<li><b>Centralizar la redacción del IMDI en Operaciones,</b> no en cada líder de grupo. El equipo en terreno aporta datos estructurados; una sola persona o proceso con plantilla arma el informe final para todos los clientes. Así la capacitación se concentra en un equipo pequeño, en vez de escalar uno a uno por edificio.</li>
+<li><b>Pilotar con 2–3 cuentas antes de prometerlo a todos los clientes.</b> Empezar por las cuentas de mayor peso (JLL, Colliers) permite medir cuánto tiempo toma realmente el proceso y ajustar el formato antes de convertirlo en estándar del servicio.</li>
+</ul>
+<p><b>Sobre el costo:</b> construir el IMDI real — plantilla, proceso de consolidación mensual y eventual automatización — es trabajo adicional que no está incluido en el desarrollo del sitio web y debe presupuestarse aparte (ver también sección 7).</p>
+<p><b>La encuesta NPS no tiene este problema.</b> Se dispara automáticamente por email o QR y no depende de que nadie en terreno redacte nada: es la pieza de menor riesgo operativo y menor costo de este paquete, y conviene priorizar su lanzamiento independiente del ritmo al que avance el IMDI.</p>
+
+<h2>9. En resumen</h2>
+<p>El sitio nuevo no es solo un rediseño visual: es la vitrina de un método. Diplomatic no compite ofreciendo el aseo más barato, sino el único proveedor del segmento que puede demostrar, con datos mensuales verificables, que el servicio se ajusta a cada cliente en vez de aplicarse igual a todos. El IMDI es la prueba de ese método; el sitio existe para mostrarla antes de que el cliente firme, y la encuesta NPS la mantiene viva después de firmar. Conviene lanzar la NPS de inmediato — es de bajo costo y riesgo — y pilotar el IMDI con un par de cuentas antes de prometerlo como estándar a todos los clientes.</p>
+
+<hr class="divider"/>
+<p class="foot">Diplomatic Chile SPA · RUT 76.903.656-3 · Documento elaborado por Francisco Santelices Ariztía para uso interno</p>
+
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>
