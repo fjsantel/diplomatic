@@ -582,7 +582,7 @@ const About = ({compact = false}) => (
   <section className={'section about-section' + (compact ? ' about-compact' : '')} id="nosotros">
     <div className="about-top">
     <div className="about-photo-bleed" aria-label="Equipo de Diplomatic Chile">
-      <img src="uploads/foto-trabajador-recortadoWillM.png" alt="Colaboradora de Diplomatic Chile" />
+      <img src="uploads/foto-trabajador-recortadoMUJER.png" alt="Colaboradora de Diplomatic Chile" />
     </div>
     <div className="container">
       <div className="section-head centered">
