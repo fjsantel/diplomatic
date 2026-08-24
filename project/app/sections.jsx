@@ -90,10 +90,13 @@ window.Header = Header;
 
 /* ---------- Hero image carousel (fades right-side photos, masks into navy) ---------- */
 const HERO_PHOTOS = [
-  'uploads/foto-fachada-rappel-cielo.png',
-  'uploads/foto-lobby-equipo-carro.png',
-  'uploads/foto-cocina-vapor-pistola.png',
-  'uploads/foto-fachada-andamio.png',
+  'uploads/hero-carousel/01-fachada-rappel-cielo.png',
+  'uploads/hero-carousel/02-trabajadora.jpg',
+  'uploads/hero-carousel/03-hall.jpg',
+  'uploads/hero-carousel/04-diplomatic.jpg',
+  'uploads/hero-carousel/05-hall-2.jpg',
+  'uploads/hero-carousel/06-cocina-vapor-pistola.png',
+  'uploads/hero-carousel/07-fachada-andamio.png',
 ];
 const HeroCarousel = () => {
   const [i, setI] = React.useState(0);
@@ -477,14 +480,14 @@ window.Testimonials = Testimonials;
 
 /* ---------- Gallery / Carousel ---------- */
 const GALLERY_PHOTOS = [
-  {src: 'uploads/foto-lobby-equipo-carro.png', alt: 'Equipo Diplomatic trabajando en lobby de hotel'},
-  {src: 'uploads/foto-fachada-rappel-cielo.png', alt: 'Limpieza vertical de fachada en altura'},
-  {src: 'uploads/foto-cocina-vapor-pistola.png', alt: 'Sanitización a vapor en cocina industrial'},
+  {src: 'uploads/hero-carousel/02-trabajadora.jpg', alt: 'Trabajadora Diplomatic en operación'},
+  {src: 'uploads/hero-carousel/01-fachada-rappel-cielo.png', alt: 'Limpieza vertical de fachada en altura'},
+  {src: 'uploads/hero-carousel/06-cocina-vapor-pistola.png', alt: 'Sanitización a vapor en cocina industrial'},
   {src: 'uploads/foto-estacionamiento-fregadora.png', alt: 'Lavado de estacionamiento con fregadora industrial'},
   {src: 'uploads/foto-lobby-mesa-centro.png', alt: 'Limpieza de áreas comunes en edificio corporativo'},
   {src: 'uploads/foto-equipo-oficina-sonriendo.png', alt: 'Equipo Diplomatic en oficina corporativa'},
   {src: 'uploads/foto-cocina-lavado-vajilla.png', alt: 'Lavado de vajilla en cocina de hotelería'},
-  {src: 'uploads/foto-fachada-andamio.png', alt: 'Limpieza de fachada con andamio'},
+  {src: 'uploads/hero-carousel/07-fachada-andamio.png', alt: 'Limpieza de fachada con andamio'},
 ];
 
 const Gallery = () => {
