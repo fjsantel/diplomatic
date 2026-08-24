@@ -180,7 +180,7 @@ window.Hero = Hero;
 const MoreThanProvider = () => (
   <section className="section provider-section" style={{paddingTop: 0}}>
     <div className="provider-photo-band">
-      <img src="uploads/Suelo-reflejo2.jpg" alt="Personal de Diplomatic puliendo piso, con reflejo del trabajo realizado" />
+      <img src="uploads/Suelo-reflejo1.jpg" alt="Piso pulido con reflejo de fachada de edificio" />
     </div>
     <div className="container">
       <div className="provider-copy">
