@@ -180,12 +180,12 @@ window.Hero = Hero;
 const MoreThanProvider = () => (
   <section className="section provider-section" style={{paddingTop: 0}}>
     <div className="provider-photo-band">
-      <img src="uploads/Suelo-reflejo1.jpg" alt="Piso pulido con reflejo de fachada de edificio" />
+      <img src="uploads/Suelo-reflejo2.jpg" alt="Personal de Diplomatic puliendo piso, con reflejo del trabajo realizado" />
     </div>
     <div className="container">
       <div className="provider-copy">
         <span className="eyebrow">Nuestra propuesta</span>
-        <h2 className="h2 mt-32">Más que un proveedor</h2>
+        <h2 className="h2 mt-32">Nuestro Trabajo se refleja</h2>
         <p className="lead muted mt-24">
           En Diplomatic entendemos que un espacio limpio no solo proyecta una buena imagen: protege la operación, mejora la experiencia de las personas y fortalece la confianza. Por eso combinamos personal especializado, supervisión permanente, procesos estandarizados y mejora continua para entregar soluciones confiables y adaptadas a cada cliente.
         </p>
