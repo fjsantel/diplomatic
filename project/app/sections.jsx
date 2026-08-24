@@ -177,11 +177,27 @@ const Hero = ({heroVariant='balanced'}) => {
 window.Hero = Hero;
 
 /* ---------- Más que un proveedor ---------- */
+const PROVIDER_PHOTOS = [
+  {src: 'uploads/Suelo-reflejo1.jpg', alt: 'Piso pulido con reflejo de fachada de edificio'},
+  {src: 'uploads/Suelo-reflejo2.jpg', alt: 'Personal de Diplomatic puliendo piso, con reflejo del trabajo realizado'},
+];
+const ProviderPhotoCarousel = () => {
+  const [i, setI] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setI(v => (v + 1) % PROVIDER_PHOTOS.length), 10000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="provider-photo-band">
+      {PROVIDER_PHOTOS.map((p, idx) => (
+        <img key={p.src} src={p.src} alt={p.alt} className={'provider-photo-slide' + (idx === i ? ' active' : '')} />
+      ))}
+    </div>
+  );
+};
 const MoreThanProvider = () => (
   <section className="section provider-section" style={{paddingTop: 0}}>
-    <div className="provider-photo-band">
-      <img src="uploads/Suelo-reflejo1.jpg" alt="Piso pulido con reflejo de fachada de edificio" />
-    </div>
+    <ProviderPhotoCarousel />
     <div className="container">
       <div className="provider-copy">
         <span className="eyebrow">Nuestra propuesta</span>

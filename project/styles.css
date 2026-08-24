@@ -183,6 +183,8 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 900px) { .logo-tagline { display: none; } }
 .provider-photo-band { position: relative; width: 100%; aspect-ratio: 21/9; margin-bottom: 48px; overflow: hidden; }
 .provider-photo-band img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.provider-photo-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1800ms ease; }
+.provider-photo-slide.active { opacity: 1; }
 .provider-copy { max-width: 68ch; margin: 0 auto; text-align: center; }
 .provider-copy .eyebrow { display: block; }
 .logo-mark {
