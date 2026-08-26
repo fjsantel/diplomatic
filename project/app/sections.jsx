@@ -744,6 +744,39 @@ const FinalCTA = () => {
 };
 window.FinalCTA = FinalCTA;
 
+/* ---------- Plana directiva ---------- */
+const TEAM = [
+  {id: 'dir-general',  name: 'Ricardo Valenzuela Soto', role: 'Director general',         mail: 'r.valenzuela@diplomatic.cl'},
+  {id: 'dir-ops',      name: 'Carolina Muñoz Fuentes',  role: 'Directora de operaciones', mail: 'c.munoz@diplomatic.cl'},
+  {id: 'jefa-mant',    name: 'Paula Herrera Cáceres',   role: 'Jefa de mantenimiento',    mail: 'p.herrera@diplomatic.cl'},
+  {id: 'jefe-calidad', name: 'Andrés Rojas Pinto',      role: 'Jefe de calidad y SST',    mail: 'a.rojas@diplomatic.cl'},
+];
+
+const Team = () => (
+  <section className="team-section" id="equipo">
+    <div className="container">
+      <div className="team-head">
+        <span className="eyebrow">Plana directiva</span>
+        <h2>Las personas que responden por el servicio</h2>
+        <p>Cada contrato tiene un responsable con nombre y correo directo. Así sabes a quién escribir cuando algo necesita atención.</p>
+      </div>
+      <div className="team-grid">
+        {TEAM.map(m => (
+          <div className="team-member" key={m.id}>
+            <div className="team-photo">
+              <image-slot id={'team-' + m.id} shape="circle" placeholder={m.role}></image-slot>
+            </div>
+            <h3>{m.name}</h3>
+            <span className="team-role">{m.role}</span>
+            <a className="team-mail" href={'mailto:' + m.mail}>{m.mail}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+window.Team = Team;
+
 /* ---------- Footer ---------- */
 const Footer = () => (
   <footer className="site-footer">
