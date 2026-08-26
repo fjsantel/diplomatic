@@ -14,7 +14,7 @@ window.Logo = Logo;
 
 /* ---------- Header / Nav ---------- */
 const NAV_LINKS = [
-  {label: 'Servicios', href: '#servicios'},
+  {label: 'Servicios', href: 'Servicios.html'},
   {label: 'Galería',   href: '#galeria'},
   {label: 'Clientes',  href: '#clientes'},
   {label: 'Nosotros',  href: '#nosotros'},

@@ -180,7 +180,14 @@ a { color: inherit; text-decoration: none; }
 .logo-text { display: flex; flex-direction: column; gap: 1px; line-height: 1.1; }
 .logo-tagline { font: 500 9px/1.2 var(--f-sans); letter-spacing: 0.02em; color: rgba(13,31,60,0.5); text-transform: uppercase; white-space: nowrap; }
 .logo-name-mont { font: 700 15px/1 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
-@media (max-width: 900px) { .logo-tagline { display: none; } }
+@media (max-width: 900px) {
+  .logo-tagline { display: block; font-size: 8px; letter-spacing: 0.01em; }
+}
+@media (max-width: 480px) {
+  .logo { gap: 8px; }
+  .logo-text { min-width: 0; }
+  .logo-tagline { max-width: 210px; white-space: normal; }
+}
 .provider-photo-band { position: relative; width: 100%; aspect-ratio: 21/9; margin-bottom: 48px; overflow: hidden; }
 .provider-photo-band img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 .provider-photo-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1800ms ease; }
@@ -656,6 +663,7 @@ a { color: inherit; text-decoration: none; }
 .svc-crumb { font: 500 13px/1 var(--f-mono); color: rgba(255,255,255,0.5); margin-bottom: 8px; }
 .svc-crumb a { color: rgba(255,255,255,0.7); }
 .svc-placeholder { width: 100%; aspect-ratio: 16/7; background: var(--blue); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font: 500 13px/1 var(--f-mono); letter-spacing: 0.04em; margin-top: 48px; }
+.svc-hero-image { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 4px; margin-top: 48px; }
 .svc-block { padding-block: clamp(56px,8vw,96px); }
 .svc-block:nth-child(even) { background: var(--tint); }
 .svc-block-grid { display: grid; gap: 48px; grid-template-columns: 1fr; }
