@@ -18,7 +18,7 @@ const NAV_LINKS = [
   {label: 'Servicios', href: 'Servicios.html'},
   {label: 'Nosotros',  href: '#nosotros'},
   {label: 'Clientes',  href: '#clientes'},
-  {label: 'Artbrake',  href: 'Artbrake.html'},
+  {label: 'Art Break', href: 'Artbrake.html'},
 ];
 
 const Header = () => {
