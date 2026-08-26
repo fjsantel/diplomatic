@@ -746,8 +746,8 @@ window.FinalCTA = FinalCTA;
 
 /* ---------- Plana directiva ---------- */
 const TEAM = [
-  {id: 'dir-adm',      name: 'Ayleen Lopez',             role: 'Directora y gerente administrativa y RR. HH.', mail: 'a.lopez@diplomatic.cl'},
-  {id: 'dir-comercial', name: 'Leonardo Lopez',          role: 'Director y gerente comercial', mail: 'l.lopez@diplomatic.cl'},
+  {id: 'dir-adm',      name: 'Ayleen López',             role: 'Directora y gerente administrativa y RR. HH.', mail: 'a.lopez@diplomatic.cl'},
+  {id: 'dir-comercial', name: 'Leonardo López',          role: 'Director y gerente comercial', mail: 'l.lopez@diplomatic.cl'},
 ];
 
 const Team = () => (
