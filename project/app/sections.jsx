@@ -755,7 +755,7 @@ const Team = () => (
     <div className="container">
       <div className="team-head">
         <span className="eyebrow">Plana directiva</span>
-        <h2>El equipo que lidera cada servicio</h2>
+        <h2>El liderazgo que garantiza cada servicio</h2>
         <p>En Diplomatic Chile contamos con un equipo multidisciplinario que trabaja coordinadamente para garantizar la calidad, continuidad y excelencia de nuestros servicios. Nuestra operación está liderada por profesionales especializados en distintas áreas, comprometidos con mantener altos estándares de atención y desempeño.</p>
       </div>
       <div className="team-grid">
