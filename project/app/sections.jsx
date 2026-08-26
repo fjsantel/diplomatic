@@ -14,11 +14,11 @@ window.Logo = Logo;
 
 /* ---------- Header / Nav ---------- */
 const NAV_LINKS = [
+  {label: 'Home',      href: '#top'},
   {label: 'Servicios', href: 'Servicios.html'},
-  {label: 'Galería',   href: '#galeria'},
-  {label: 'Clientes',  href: '#clientes'},
   {label: 'Nosotros',  href: '#nosotros'},
-  {label: 'Contacto',  href: '#contacto'},
+  {label: 'Clientes',  href: '#clientes'},
+  {label: 'Artbrake',  href: 'Artbrake.html'},
 ];
 
 const Header = () => {

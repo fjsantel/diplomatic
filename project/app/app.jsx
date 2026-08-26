@@ -24,6 +24,13 @@ function App() {
     document.documentElement.dataset.cta = t.ctaStyle;
   }, [t.ctaStyle]);
 
+  React.useEffect(() => {
+    if (!window.location.hash) return;
+    requestAnimationFrame(() => {
+      document.querySelector(window.location.hash)?.scrollIntoView();
+    });
+  }, []);
+
   // Two narrative orders. 'framework' = Hero → Proof → About → Diff → Services
   // → IMDI (lead magnet) → Testimonios → CTA. 'brief' = the original brief
   // order. Reordering instead of forking lets us A/B the homepage arc.
