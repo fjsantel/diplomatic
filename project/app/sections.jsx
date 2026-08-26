@@ -746,10 +746,8 @@ window.FinalCTA = FinalCTA;
 
 /* ---------- Plana directiva ---------- */
 const TEAM = [
-  {id: 'dir-general',  name: 'Ricardo Valenzuela Soto', role: 'Director general',         mail: 'r.valenzuela@diplomatic.cl'},
-  {id: 'dir-ops',      name: 'Carolina Muñoz Fuentes',  role: 'Directora de operaciones', mail: 'c.munoz@diplomatic.cl'},
-  {id: 'jefa-mant',    name: 'Paula Herrera Cáceres',   role: 'Jefa de mantenimiento',    mail: 'p.herrera@diplomatic.cl'},
-  {id: 'jefe-calidad', name: 'Andrés Rojas Pinto',      role: 'Jefe de calidad y SST',    mail: 'a.rojas@diplomatic.cl'},
+  {id: 'dir-adm',      name: 'Ayleen Lopez',             role: 'Directora y gerente administrativa y RR. HH.', mail: 'a.lopez@diplomatic.cl'},
+  {id: 'dir-comercial', name: 'Leonardo Lopez',          role: 'Director y gerente comercial', mail: 'l.lopez@diplomatic.cl'},
 ];
 
 const Team = () => (
@@ -757,8 +755,8 @@ const Team = () => (
     <div className="container">
       <div className="team-head">
         <span className="eyebrow">Plana directiva</span>
-        <h2>Las personas que responden por el servicio</h2>
-        <p>Cada contrato tiene un responsable con nombre y correo directo. Así sabes a quién escribir cuando algo necesita atención.</p>
+        <h2>El equipo que lidera cada servicio</h2>
+        <p>En Diplomatic Chile contamos con un equipo multidisciplinario que trabaja coordinadamente para garantizar la calidad, continuidad y excelencia de nuestros servicios. Nuestra operación está liderada por profesionales especializados en distintas áreas, comprometidos con mantener altos estándares de atención y desempeño.</p>
       </div>
       <div className="team-grid">
         {TEAM.map(m => (
