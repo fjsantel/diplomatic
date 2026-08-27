@@ -611,9 +611,20 @@ a { color: inherit; text-decoration: none; }
   display: none;
   z-index: 0;
 }
-@media (min-width: 860px) { .about-photo-bleed { display: block; } }
+@media (min-width: 1024px) { .about-photo-bleed { display: block; } }
 .about-photo-bleed img { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; max-height: 100%; object-fit: contain; object-position: left bottom; }
 .about-photo-bleed::after { display: none; }
+@media (max-width: 1023px) {
+  .about-top { display: flex; flex-direction: column; padding-bottom: 0; }
+  .about-top::after { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-spacer { display: none; }
+  .about-top > .container > .section-head.centered { display: block; text-align: left; }
+  .about-top .head-aside { margin-top: 18px; }
+  .about-top > .container { order: 1; }
+  .about-photo-bleed { order: 2; display: block; position: static; width: 100%; top: auto; background: #E8F1FB; margin-top: 32px; }
+  .about-photo-bleed img { position: static; width: 100%; height: auto; max-height: none; display: block; object-fit: contain; object-position: center bottom; margin-bottom: -1px; }
+}
 .mv-band { position: relative; background: var(--blue); z-index: 2; padding-block: 32px; }
 .mv-grid { display: grid; gap: 32px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .mv-grid { grid-template-columns: 1fr 1fr; } }
@@ -653,7 +664,7 @@ a { color: inherit; text-decoration: none; }
 .svc-page-hero { background: var(--navy); color: #fff; padding-top: calc(72px + clamp(56px,8vw,96px)); padding-bottom: clamp(56px,8vw,96px); }
 .svc-page-hero .eyebrow { color: rgba(255,255,255,0.55); }
 .svc-page-hero--img { position: relative; overflow: hidden; min-height: 60vh; display: flex; align-items: center; }
-.svc-page-hero--img::before { content: ""; position: absolute; inset: 0; background: url("uploads/Todos%20los%20servicios.webp") center right/cover no-repeat; opacity: 1; }
+.svc-page-hero--img::before { content: ""; position: absolute; inset: 0; background: url("assets/carousels/banners/Todos%20los%20servicios.webp") center right/cover no-repeat; opacity: 1; }
 .svc-page-hero--img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(11,26,48,0.82) 0%, rgba(11,26,48,0.52) 38%, rgba(11,26,48,0.18) 62%, rgba(11,26,48,0) 100%), linear-gradient(to top, rgba(11,26,48,0.35), rgba(11,26,48,0) 45%); }
 .svc-page-hero--img .container { position: relative; z-index: 1; }
 .svc-page-hero--img h1, .svc-page-hero--img .lead { text-shadow: 0 2px 24px rgba(11,26,48,0.45); }
@@ -798,7 +809,7 @@ a.svc-tile:hover { background: var(--tint); }
 .form-success .meta { font: 500 12px/1.4 var(--f-mono); color: var(--muted); }
 
 /* === Gallery carousel === */
-.gallery-carousel { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--navy); }
+.gallery-carousel { position: relative; width: 100vw; margin-left: calc(50% - 50vw); aspect-ratio: 16/9; overflow: hidden; background: var(--navy); }
 .gallery-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1400ms ease; }
 .gallery-slide.active { opacity: 1; }
 .gallery-dots { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 2; }
@@ -845,6 +856,9 @@ a.svc-tile:hover { background: var(--tint); }
   flex-wrap: wrap;
   font: 500 12px/1 var(--f-mono); color: rgba(255,255,255,0.45);
 }
+.foot-credit { flex: 0 0 100%; font: 400 9px/1.4 var(--f-sans); color: rgba(255,255,255,0.3); }
+.foot-credit a { color: inherit; text-decoration: none; }
+.foot-credit a:hover { color: #fff; }
 
 /* Section header */
 .section-head {

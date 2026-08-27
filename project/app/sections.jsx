@@ -3,7 +3,7 @@
 /* ---------- Logo ---------- */
 const Logo = ({onDark=false}) => (
   <a href="#top" className="logo" style={onDark ? {color: '#fff'} : null} aria-label="Diplomatic Chile — Servicios de aseo industrial profesional">
-    <img src="uploads/logo-gota.webp" alt="" className="logo-mark-img" />
+    <img src="assets/brand/logo-gota.webp" alt="" className="logo-mark-img" />
     <span className="logo-text">
       <span className="logo-name logo-name-mont">Diplomatic <span style={{opacity:0.55, fontWeight: 700}}>Chile</span></span>
       <span className="logo-tagline" style={onDark ? {color: 'rgba(255,255,255,0.55)'} : null}>Servicios de aseo industrial profesional</span>
@@ -90,13 +90,13 @@ window.Header = Header;
 
 /* ---------- Hero image carousel (fades right-side photos, masks into navy) ---------- */
 const HERO_PHOTOS = [
-  'uploads/hero-carousel/01-fachada-rappel-cielo.webp',
-  'uploads/hero-carousel/02-trabajadora.jpg',
-  'uploads/hero-carousel/03-hall.jpg',
-  'uploads/hero-carousel/04-diplomatic.jpg',
-  'uploads/hero-carousel/05-hall-2.jpg',
-  'uploads/hero-carousel/06-cocina-vapor-pistola.webp',
-  'uploads/hero-carousel/07-fachada-andamio.webp',
+  'assets/carousels/hero/01-fachada-rappel-cielo.webp',
+  'assets/carousels/hero/02-trabajadora.jpg',
+  'assets/carousels/hero/03-hall.jpg',
+  'assets/carousels/hero/04-diplomatic.jpg',
+  'assets/carousels/hero/05-hall-2.jpg',
+  'assets/carousels/hero/06-cocina-vapor-pistola.webp',
+  'assets/carousels/hero/07-fachada-andamio.webp',
 ];
 const HeroCarousel = () => {
   const [i, setI] = React.useState(0);
@@ -178,8 +178,8 @@ window.Hero = Hero;
 
 /* ---------- Más que un proveedor ---------- */
 const PROVIDER_PHOTOS = [
-  {src: 'uploads/Suelo-reflejo1.jpg', alt: 'Piso pulido con reflejo de fachada de edificio'},
-  {src: 'uploads/Suelo-reflejo2.jpg', alt: 'Personal de Diplomatic puliendo piso, con reflejo del trabajo realizado'},
+  {src: 'assets/home/Suelo-reflejo1.jpg', alt: 'Piso pulido con reflejo de fachada de edificio'},
+  {src: 'assets/home/Suelo-reflejo2.jpg', alt: 'Personal de Diplomatic puliendo piso, con reflejo del trabajo realizado'},
 ];
 const ProviderPhotoCarousel = () => {
   const [i, setI] = React.useState(0);
@@ -292,14 +292,14 @@ window.ValuesTicker = ValuesTicker;
 
 /* ---------- Commercial banners carousel ---------- */
 const BANNER_IMAGES = [
-  'uploads/banner-viviendas.webp',
-  'uploads/banner-oficinas-cafeterias.webp',
-  'uploads/banner-hoteleria.webp',
-  'uploads/banner-fachadas.webp',
-  'uploads/banner-areas-comunes.webp',
-  'uploads/banner-alimentos-bebidas.webp',
-  'uploads/banner-estacionamientos.webp',
-  'uploads/banner-alfombras.webp',
+  'assets/carousels/banners/banner-viviendas.webp',
+  'assets/carousels/banners/banner-oficinas-cafeterias.webp',
+  'assets/carousels/banners/banner-hoteleria.webp',
+  'assets/carousels/banners/banner-fachadas.webp',
+  'assets/carousels/banners/banner-areas-comunes.webp',
+  'assets/carousels/banners/banner-alimentos-bebidas.webp',
+  'assets/carousels/banners/banner-estacionamientos.webp',
+  'assets/carousels/banners/banner-alfombras.webp',
 ];
 const BannerCarousel = () => {
   const [i, setI] = React.useState(0);
@@ -392,13 +392,13 @@ window.Differentiators = Differentiators;
 
 /* ---------- Services ---------- */
 const SERVICES = [
-  {n: '01', title: 'Áreas comunes', desc: 'Espacios de alto tránsito en condiciones óptimas: limpieza, presentación y continuidad operacional.', href: null},
-  {n: '02', title: 'Oficinas', desc: 'Ambientes limpios y seguros que favorecen la productividad y la imagen corporativa.', href: null},
+  {n: '01', title: 'Áreas comunes', desc: 'Espacios de alto tránsito en condiciones óptimas: limpieza, presentación y continuidad operacional.', href: 'servicio-areas-comunes.html'},
+  {n: '02', title: 'Oficinas', desc: 'Ambientes limpios y seguros que favorecen la productividad y la imagen corporativa.', href: 'servicio-oficinas.html'},
   {n: '03', title: 'Housekeeping', desc: 'Personal especializado para hoteles con foco en calidad, rapidez y experiencia del huésped.', href: 'servicio-housekeeping.html'},
-  {n: '04', title: 'Steward', desc: 'Apoyo operativo para cocinas y Alimentos & Bebidas, manteniendo higiene y continuidad del servicio.', href: null},
+  {n: '04', title: 'Steward', desc: 'Apoyo operativo para cocinas y Alimentos & Bebidas, manteniendo higiene y continuidad del servicio.', href: 'servicio-steward.html'},
   {n: '05', title: 'Fachadas', desc: 'Limpieza profesional de fachadas y vidrios mediante procedimientos seguros.', href: 'servicio-fachadas.html'},
-  {n: '06', title: 'Alfombras', desc: 'Limpieza profunda que prolonga la vida útil de las superficies y mejora la presentación.', href: null},
-  {n: '07', title: 'Estacionamientos', desc: 'Lavado mecanizado y limpieza integral para una mejor experiencia de ingreso.', href: null},
+  {n: '06', title: 'Alfombras', desc: 'Limpieza profunda que prolonga la vida útil de las superficies y mejora la presentación.', href: 'servicio-alfombras.html'},
+  {n: '07', title: 'Estacionamientos', desc: 'Lavado mecanizado y limpieza integral para una mejor experiencia de ingreso.', href: 'servicio-estacionamientos.html'},
 ];
 
 const Services = ({servicesVariant='cards'}) => {
@@ -412,8 +412,10 @@ const Services = ({servicesVariant='cards'}) => {
           </div>
           <div className="head-aside">
             <p className="lead muted">Cada servicio entrega un resultado verificable. Sin paquetes ambiguos.</p>
+            <div className="svc-viewall"><a className="btn btn-secondary" href="Servicios.html">Ver todos los servicios e industrias <Icon.Arrow/></a></div>
           </div>
         </div>
+        <Gallery />
         <div className="svc-tile-grid">
           {SERVICES.map(s => (
             s.href ? (
@@ -496,20 +498,51 @@ window.Testimonials = Testimonials;
 
 /* ---------- Gallery / Carousel ---------- */
 const GALLERY_PHOTOS = [
-  {src: 'uploads/hero-carousel/02-trabajadora.jpg', alt: 'Trabajadora Diplomatic en operación'},
-  {src: 'uploads/hero-carousel/01-fachada-rappel-cielo.webp', alt: 'Limpieza vertical de fachada en altura'},
-  {src: 'uploads/hero-carousel/06-cocina-vapor-pistola.webp', alt: 'Sanitización a vapor en cocina industrial'},
-  {src: 'uploads/foto-estacionamiento-fregadora.webp', alt: 'Lavado de estacionamiento con fregadora industrial'},
-  {src: 'uploads/foto-lobby-mesa-centro.webp', alt: 'Limpieza de áreas comunes en edificio corporativo'},
-  {src: 'uploads/foto-equipo-oficina-sonriendo.webp', alt: 'Equipo Diplomatic en oficina corporativa'},
-  {src: 'uploads/foto-cocina-lavado-vajilla.webp', alt: 'Lavado de vajilla en cocina de hotelería'},
-  {src: 'uploads/hero-carousel/07-fachada-andamio.webp', alt: 'Limpieza de fachada con andamio'},
+  {src: 'assets/carousels/hero/02-trabajadora.jpg', alt: 'Trabajadora Diplomatic en operación'},
+  {src: 'assets/carousels/hero/01-fachada-rappel-cielo.webp', alt: 'Limpieza vertical de fachada en altura'},
+  {src: 'assets/carousels/hero/06-cocina-vapor-pistola.webp', alt: 'Sanitización a vapor en cocina industrial'},
+  {src: 'assets/home/foto-estacionamiento-fregadora.webp', alt: 'Lavado de estacionamiento con fregadora industrial'},
+  {src: 'assets/home/foto-lobby-mesa-centro.webp', alt: 'Limpieza de áreas comunes en edificio corporativo'},
+  {src: 'assets/home/foto-equipo-oficina-sonriendo.webp', alt: 'Equipo Diplomatic en oficina corporativa'},
+  {src: 'assets/home/foto-cocina-lavado-vajilla.webp', alt: 'Lavado de vajilla en cocina de hotelería'},
+  {src: 'assets/carousels/hero/07-fachada-andamio.webp', alt: 'Limpieza de fachada con andamio'},
+  {src: 'assets/carousels/gallery/1-estacionamientos.webp', alt: 'Limpieza de estacionamientos'},
+  {src: 'assets/carousels/gallery/2-retrato-estacionamiento.webp', alt: 'Operario en estacionamiento'},
+  {src: 'assets/carousels/gallery/3-retrato-subterraneo-2.webp', alt: 'Operario en estacionamiento subterráneo'},
+  {src: 'assets/carousels/gallery/4-maquina-de-limpieza1.webp', alt: 'Máquina de limpieza profesional'},
+  {src: 'assets/carousels/gallery/5-hector.webp', alt: 'Operario Diplomatic'},
+  {src: 'assets/carousels/gallery/6-hectormaquina.webp', alt: 'Operario utilizando máquina de limpieza'},
+  {src: 'assets/carousels/gallery/7-piso-limpio-1.webp', alt: 'Piso limpio y brillante'},
+  {src: 'assets/carousels/gallery/8-ventana.webp', alt: 'Limpieza de ventanas'},
+  {src: 'assets/carousels/gallery/9-vidrio2.webp', alt: 'Limpieza de superficies de vidrio'},
+  {src: 'assets/carousels/gallery/10-pa-no.webp', alt: 'Paño de limpieza profesional'},
+  {src: 'assets/carousels/gallery/11-retratojpg.webp', alt: 'Operario Diplomatic en servicio'},
+  {src: 'assets/carousels/gallery/12hall1.webp', alt: 'Limpieza de hall de edificio'},
+  {src: 'assets/carousels/gallery/13hall2.webp', alt: 'Hall de edificio limpio'},
+  {src: 'assets/carousels/gallery/14-aspiradora.webp', alt: 'Limpieza con aspiradora profesional'},
+  {src: 'assets/carousels/gallery/15-limpieza.webp', alt: 'Servicio de limpieza profesional'},
+  {src: 'assets/carousels/gallery/16-textura.webp', alt: 'Detalle de superficie limpia'},
+  {src: 'assets/carousels/gallery/17-limpieza.webp', alt: 'Operario realizando labores de limpieza'},
+  {src: 'assets/carousels/gallery/18-limpieza2.webp', alt: 'Limpieza profesional de superficies'},
+  {src: 'assets/carousels/gallery/19-limpieza3.webp', alt: 'Limpieza profesional en terreno'},
+  {src: 'assets/carousels/gallery/21-gorra.webp', alt: 'Uniforme de operario Diplomatic'},
+  {src: 'assets/carousels/gallery/22-agua-mopa.webp', alt: 'Limpieza de piso con mopa'},
+  {src: 'assets/carousels/gallery/23-agente1.webp', alt: 'Operario de limpieza Diplomatic'},
+  {src: 'assets/carousels/gallery/24-trapeador.webp', alt: 'Limpieza de piso con trapeador'},
+  {src: 'assets/carousels/gallery/25-exterior.webp', alt: 'Limpieza de espacios exteriores'},
+  {src: 'assets/carousels/gallery/26-equipo.webp', alt: 'Equipo Diplomatic de limpieza'},
 ];
 
 const Gallery = () => {
-  const [i, setI] = React.useState(0);
+  const [i, setI] = React.useState(() => Math.floor(Math.random() * GALLERY_PHOTOS.length));
   React.useEffect(() => {
-    const id = setInterval(() => setI(v => (v + 1) % GALLERY_PHOTOS.length), 4800);
+    const id = setInterval(() => setI(current => {
+      let next = Math.floor(Math.random() * GALLERY_PHOTOS.length);
+      while (next === current && GALLERY_PHOTOS.length > 1) {
+        next = Math.floor(Math.random() * GALLERY_PHOTOS.length);
+      }
+      return next;
+    }), 4800);
     return () => clearInterval(id);
   }, []);
   return (
@@ -580,7 +613,7 @@ const About = ({compact = false}) => (
   <section className={'section about-section' + (compact ? ' about-compact' : '')} id="nosotros">
     <div className="about-top">
     <div className="about-photo-bleed" aria-label="Equipo de Diplomatic Chile">
-      <img src="uploads/foto-trabajador-recortadoMUJER.webp" alt="Colaboradora de Diplomatic Chile" />
+      <img src="assets/home/foto-trabajador-recortadoMUJER.webp" alt="Colaboradora de Diplomatic Chile" />
     </div>
     <div className="container">
       <div className="section-head centered">
@@ -744,8 +777,8 @@ window.FinalCTA = FinalCTA;
 
 /* ---------- Plana directiva ---------- */
 const TEAM = [
-  {id: 'dir-adm',      name: 'Ayleen López',    role: 'Directora y gerente administrativa y RR. HH.', mail: 'a.lopez@diplomatic.cl', photo: 'uploads/ayleen-lopez.webp'},
-  {id: 'dir-comercial', name: 'Leonardo López', role: 'Director y gerente comercial', mail: 'l.lopez@diplomatic.cl', photo: 'uploads/leonardo-lopez.webp'},
+  {id: 'dir-adm',      name: 'Ayleen López',    role: 'Directora y gerente administrativa y RR. HH.', mail: 'a.lopez@diplomatic.cl', photo: 'assets/home/ayleen-lopez.webp'},
+  {id: 'dir-comercial', name: 'Leonardo López', role: 'Director y gerente comercial', mail: 'l.lopez@diplomatic.cl', photo: 'assets/home/leonardo-lopez.webp'},
 ];
 
 const Team = () => (
@@ -806,8 +839,8 @@ const Footer = () => (
     </div>
     <div className="foot-legal">
       <div className="container foot-legal-inner">
-        <span>RUT 76.903.656-3 · © 2026 Diplomatic Chile SPA</span>
-        <span>diplomatic.cl</span>
+        <span>RUT 76.903.656-3 · © 2026 Diplomatic Chile SPA · www.diplomatic.cl</span>
+        <span className="foot-credit">Sitio web, diseño y fotografías por <a href="https://www.franciscosantelices.cl" target="_blank" rel="noopener noreferrer">Francisco Santelices Ariztía</a></span>
       </div>
     </div>
   </footer>

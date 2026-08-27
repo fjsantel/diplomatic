@@ -35,8 +35,8 @@ function App() {
   // → IMDI (lead magnet) → Testimonios → CTA. 'brief' = the original brief
   // order. Reordering instead of forking lets us A/B the homepage arc.
   const sections = t.sectionOrder === 'brief'
-    ? ['hero','band','proveedor','banners','services','testi','galeria','about','values','proceso','cta','team']
-    : ['hero','band','proveedor','banners','about','values','proceso','services','galeria','testi','cta','team'];
+    ? ['hero','band','proveedor','banners','services','testi','about','values','proceso','cta','team']
+    : ['hero','band','proveedor','banners','about','values','proceso','services','testi','cta','team'];
 
   const renderSection = (id) => {
     switch (id) {
