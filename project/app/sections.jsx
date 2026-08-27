@@ -3,7 +3,7 @@
 /* ---------- Logo ---------- */
 const Logo = ({onDark=false}) => (
   <a href="#top" className="logo" style={onDark ? {color: '#fff'} : null} aria-label="Diplomatic Chile — Servicios de aseo industrial profesional">
-    <img src="uploads/logo-gota.png" alt="" className="logo-mark-img" />
+    <img src="uploads/logo-gota.webp" alt="" className="logo-mark-img" />
     <span className="logo-text">
       <span className="logo-name logo-name-mont">Diplomatic <span style={{opacity:0.55, fontWeight: 700}}>Chile</span></span>
       <span className="logo-tagline" style={onDark ? {color: 'rgba(255,255,255,0.55)'} : null}>Servicios de aseo industrial profesional</span>
@@ -90,13 +90,13 @@ window.Header = Header;
 
 /* ---------- Hero image carousel (fades right-side photos, masks into navy) ---------- */
 const HERO_PHOTOS = [
-  'uploads/hero-carousel/01-fachada-rappel-cielo.png',
+  'uploads/hero-carousel/01-fachada-rappel-cielo.webp',
   'uploads/hero-carousel/02-trabajadora.jpg',
   'uploads/hero-carousel/03-hall.jpg',
   'uploads/hero-carousel/04-diplomatic.jpg',
   'uploads/hero-carousel/05-hall-2.jpg',
-  'uploads/hero-carousel/06-cocina-vapor-pistola.png',
-  'uploads/hero-carousel/07-fachada-andamio.png',
+  'uploads/hero-carousel/06-cocina-vapor-pistola.webp',
+  'uploads/hero-carousel/07-fachada-andamio.webp',
 ];
 const HeroCarousel = () => {
   const [i, setI] = React.useState(0);
@@ -121,7 +121,7 @@ const Hero = ({heroVariant='balanced'}) => {
   const variants = {
     balanced: {
       h1: <>Cuidamos espacios. <em>Creamos experiencias.</em></>,
-      sub: 'En Diplomatic desarrollamos soluciones integrales de Facility Services y aseo industrial profesional para organizaciones que exigen altos estándares de calidad, seguridad y continuidad operacional.',
+      sub: 'En Diplomatic desarrollamos soluciones integrales de aseo profesional y servicios especializados, diseñadas para organizaciones que buscan excelencia, seguridad, eficiencia y continuidad en sus operaciones.',
     },
     invisible: {
       h1: <>El aseo debería ser <em>invisible</em>. Si te preocupa, algo está fallando.</>,
@@ -292,14 +292,14 @@ window.ValuesTicker = ValuesTicker;
 
 /* ---------- Commercial banners carousel ---------- */
 const BANNER_IMAGES = [
-  'uploads/banner-viviendas.jpg',
-  'uploads/banner-oficinas-cafeterias.jpg',
-  'uploads/banner-hoteleria.jpg',
-  'uploads/banner-fachadas.jpg',
-  'uploads/banner-areas-comunes.jpg',
-  'uploads/banner-alimentos-bebidas.jpg',
-  'uploads/banner-estacionamientos.jpg',
-  'uploads/banner-alfombras.jpg',
+  'uploads/banner-viviendas.webp',
+  'uploads/banner-oficinas-cafeterias.webp',
+  'uploads/banner-hoteleria.webp',
+  'uploads/banner-fachadas.webp',
+  'uploads/banner-areas-comunes.webp',
+  'uploads/banner-alimentos-bebidas.webp',
+  'uploads/banner-estacionamientos.webp',
+  'uploads/banner-alfombras.webp',
 ];
 const BannerCarousel = () => {
   const [i, setI] = React.useState(0);
@@ -497,13 +497,13 @@ window.Testimonials = Testimonials;
 /* ---------- Gallery / Carousel ---------- */
 const GALLERY_PHOTOS = [
   {src: 'uploads/hero-carousel/02-trabajadora.jpg', alt: 'Trabajadora Diplomatic en operación'},
-  {src: 'uploads/hero-carousel/01-fachada-rappel-cielo.png', alt: 'Limpieza vertical de fachada en altura'},
-  {src: 'uploads/hero-carousel/06-cocina-vapor-pistola.png', alt: 'Sanitización a vapor en cocina industrial'},
-  {src: 'uploads/foto-estacionamiento-fregadora.png', alt: 'Lavado de estacionamiento con fregadora industrial'},
-  {src: 'uploads/foto-lobby-mesa-centro.png', alt: 'Limpieza de áreas comunes en edificio corporativo'},
-  {src: 'uploads/foto-equipo-oficina-sonriendo.png', alt: 'Equipo Diplomatic en oficina corporativa'},
-  {src: 'uploads/foto-cocina-lavado-vajilla.png', alt: 'Lavado de vajilla en cocina de hotelería'},
-  {src: 'uploads/hero-carousel/07-fachada-andamio.png', alt: 'Limpieza de fachada con andamio'},
+  {src: 'uploads/hero-carousel/01-fachada-rappel-cielo.webp', alt: 'Limpieza vertical de fachada en altura'},
+  {src: 'uploads/hero-carousel/06-cocina-vapor-pistola.webp', alt: 'Sanitización a vapor en cocina industrial'},
+  {src: 'uploads/foto-estacionamiento-fregadora.webp', alt: 'Lavado de estacionamiento con fregadora industrial'},
+  {src: 'uploads/foto-lobby-mesa-centro.webp', alt: 'Limpieza de áreas comunes en edificio corporativo'},
+  {src: 'uploads/foto-equipo-oficina-sonriendo.webp', alt: 'Equipo Diplomatic en oficina corporativa'},
+  {src: 'uploads/foto-cocina-lavado-vajilla.webp', alt: 'Lavado de vajilla en cocina de hotelería'},
+  {src: 'uploads/hero-carousel/07-fachada-andamio.webp', alt: 'Limpieza de fachada con andamio'},
 ];
 
 const Gallery = () => {
@@ -582,7 +582,7 @@ const About = ({compact = false}) => (
   <section className={'section about-section' + (compact ? ' about-compact' : '')} id="nosotros">
     <div className="about-top">
     <div className="about-photo-bleed" aria-label="Equipo de Diplomatic Chile">
-      <img src="uploads/foto-trabajador-recortadoMUJER.png" alt="Colaboradora de Diplomatic Chile" />
+      <img src="uploads/foto-trabajador-recortadoMUJER.webp" alt="Colaboradora de Diplomatic Chile" />
     </div>
     <div className="container">
       <div className="section-head centered">
@@ -746,8 +746,8 @@ window.FinalCTA = FinalCTA;
 
 /* ---------- Plana directiva ---------- */
 const TEAM = [
-  {id: 'dir-adm',      name: 'Ayleen López',             role: 'Directora y gerente administrativa y RR. HH.', mail: 'a.lopez@diplomatic.cl'},
-  {id: 'dir-comercial', name: 'Leonardo López',          role: 'Director y gerente comercial', mail: 'l.lopez@diplomatic.cl'},
+  {id: 'dir-adm',      name: 'Ayleen López',    role: 'Directora y gerente administrativa y RR. HH.', mail: 'a.lopez@diplomatic.cl', photo: 'uploads/ayleen-lopez.webp'},
+  {id: 'dir-comercial', name: 'Leonardo López', role: 'Director y gerente comercial', mail: 'l.lopez@diplomatic.cl', photo: 'uploads/leonardo-lopez.webp'},
 ];
 
 const Team = () => (
@@ -762,7 +762,7 @@ const Team = () => (
         {TEAM.map(m => (
           <div className="team-member" key={m.id}>
             <div className="team-photo">
-              <image-slot id={'team-' + m.id} shape="circle" placeholder={m.role}></image-slot>
+              <img src={m.photo} alt={m.name} />
             </div>
             <h3>{m.name}</h3>
             <span className="team-role">{m.role}</span>
