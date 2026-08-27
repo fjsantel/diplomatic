@@ -701,15 +701,8 @@ const FinalCTA = () => {
     try {
       const response = await fetch('https://formspree.io/f/xppzaebv', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json', Accept: 'application/json'},
-        body: JSON.stringify({
-          Nombre: form.nombre,
-          Empresa: form.empresa,
-          Teléfono: form.telefono,
-          Mensaje: form.mensaje || 'Sin mensaje adicional',
-          _subject: 'Nueva solicitud de cotización · Diplomatic',
-          _captcha: 'false',
-        }),
+        headers: {Accept: 'application/json'},
+        body: new FormData(e.currentTarget),
       });
       if (!response.ok) throw new Error('No se pudo enviar la solicitud.');
       setSent(true);
@@ -767,22 +760,22 @@ const FinalCTA = () => {
 
               <div className={'field' + (err.nombre ? ' has-error' : '')}>
                 <label htmlFor="nombre">Nombre completo</label>
-                <input id="nombre" type="text" value={form.nombre} onChange={e => set('nombre', e.target.value)} autoComplete="name"/>
+                <input id="nombre" name="nombre" type="text" value={form.nombre} onChange={e => set('nombre', e.target.value)} autoComplete="name"/>
                 {err.nombre && <span className="err">{err.nombre}</span>}
               </div>
               <div className={'field' + (err.empresa ? ' has-error' : '')}>
                 <label htmlFor="empresa">Empresa</label>
-                <input id="empresa" type="text" value={form.empresa} onChange={e => set('empresa', e.target.value)} autoComplete="organization"/>
+                <input id="empresa" name="empresa" type="text" value={form.empresa} onChange={e => set('empresa', e.target.value)} autoComplete="organization"/>
                 {err.empresa && <span className="err">{err.empresa}</span>}
               </div>
               <div className={'field' + (err.telefono ? ' has-error' : '')}>
                 <label htmlFor="telefono">Teléfono</label>
-                <input id="telefono" type="tel" value={form.telefono} onChange={e => set('telefono', e.target.value)} autoComplete="tel" placeholder="+56 9 …"/>
+                <input id="telefono" name="telefono" type="tel" value={form.telefono} onChange={e => set('telefono', e.target.value)} autoComplete="tel" placeholder="+56 9 …"/>
                 {err.telefono && <span className="err">{err.telefono}</span>}
               </div>
               <div className="field">
                 <label htmlFor="mensaje">Mensaje <span style={{color: 'var(--muted)', fontWeight: 500, textTransform: 'none', letterSpacing: 0}}>· opcional</span></label>
-                <textarea id="mensaje" value={form.mensaje} onChange={e => set('mensaje', e.target.value)} placeholder="Tipo de instalación, metros cuadrados, frecuencia esperada…"></textarea>
+                <textarea id="mensaje" name="mensaje" value={form.mensaje} onChange={e => set('mensaje', e.target.value)} placeholder="Tipo de instalación, metros cuadrados, frecuencia esperada…"></textarea>
               </div>
               <button type="submit" className="btn btn-primary on-dark submit">
                 {sending ? 'Enviando…' : 'Solicitar cotización gratuita'} {!sending && <Icon.Arrow/>}
