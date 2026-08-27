@@ -598,9 +598,6 @@ const IMDISection = ({prominent = false}) => (
             <a className="btn btn-primary cta-standout" href="#contacto">Solicitar un IMDI de ejemplo <Icon.Arrow/></a>
             <a className="btn btn-ghost" href="/imdi/">Cómo funciona el IMDI <Icon.Arrow size={14}/></a>
           </div>
-          <div style={{marginTop: 16}}>
-            <a className="btn btn-secondary" href="Encuesta NPS.html">Ver encuesta de satisfacción (NPS) <Icon.Arrow size={14}/></a>
-          </div>
         </div>
       </div>
     </div>
@@ -839,12 +836,11 @@ const Footer = () => (
         <div className="foot-col">
           <h4>Servicios</h4>
           <ul>
-            <li><a href="/aseo-oficinas-santiago/">Aseo de oficinas</a></li>
-            <li><a href="/aseo-areas-comunes-edificios/">Áreas comunes</a></li>
-            <li><a href="/limpieza-vertical-fachadas/">Limpieza vertical</a></li>
-            <li><a href="/aseo-hoteleria-profesional/">Aseo hotelero</a></li>
-            <li><a href="/sanitizacion-desinfeccion-empresas/">Sanitización</a></li>
-            <li><a href="Encuesta NPS.html">Encuesta de satisfacción</a></li>
+            <li><a href="servicio-oficinas.html">Aseo de oficinas</a></li>
+            <li><a href="servicio-areas-comunes.html">Áreas comunes</a></li>
+            <li><a href="servicio-fachadas.html">Limpieza vertical</a></li>
+            <li><a href="servicio-housekeeping.html">Aseo hotelero</a></li>
+            <li><a href="index.html#contacto">Sanitización</a></li>
           </ul>
         </div>
         <div className="foot-col">
