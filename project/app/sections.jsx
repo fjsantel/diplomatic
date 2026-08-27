@@ -682,7 +682,7 @@ window.About = About;
 
 /* ---------- CTA Final + Form ---------- */
 const FinalCTA = () => {
-  const [form, setForm] = React.useState({nombre: '', empresa: '', telefono: '', mensaje: ''});
+  const [form, setForm] = React.useState({nombre: '', empresa: '', email: '', telefono: '', mensaje: ''});
   const [err, setErr] = React.useState({});
   const [sent, setSent] = React.useState(false);
   const [sending, setSending] = React.useState(false);
@@ -694,6 +694,7 @@ const FinalCTA = () => {
     const next = {};
     if (!form.nombre.trim()) next.nombre = 'Falta tu nombre.';
     if (!form.empresa.trim()) next.empresa = 'Indica la empresa.';
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) next.email = 'Correo electrónico inválido.';
     if (!form.telefono.trim() || form.telefono.replace(/\D/g, '').length < 8) next.telefono = 'Teléfono inválido.';
     if (Object.keys(next).length) { setErr(next); return; }
     setSending(true);
@@ -767,6 +768,11 @@ const FinalCTA = () => {
                 <label htmlFor="empresa">Empresa</label>
                 <input id="empresa" name="empresa" type="text" value={form.empresa} onChange={e => set('empresa', e.target.value)} autoComplete="organization"/>
                 {err.empresa && <span className="err">{err.empresa}</span>}
+              </div>
+              <div className={'field' + (err.email ? ' has-error' : '')}>
+                <label htmlFor="email">Correo electrónico</label>
+                <input id="email" name="email" type="email" value={form.email} onChange={e => set('email', e.target.value)} autoComplete="email"/>
+                {err.email && <span className="err">{err.email}</span>}
               </div>
               <div className={'field' + (err.telefono ? ' has-error' : '')}>
                 <label htmlFor="telefono">Teléfono</label>
