@@ -756,7 +756,7 @@ const FinalCTA = () => {
           ) : (
             <form onSubmit={submit} noValidate>
               <h3>Solicitar cotización</h3>
-              <p className="form-sub">4 campos. Nada de formularios kilométricos.</p>
+              <p className="form-sub">5 campos. Nada de formularios kilométricos.</p>
 
               <div className={'field' + (err.nombre ? ' has-error' : '')}>
                 <label htmlFor="nombre">Nombre completo</label>
