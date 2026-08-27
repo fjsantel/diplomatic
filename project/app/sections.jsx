@@ -759,7 +759,6 @@ const FinalCTA = () => {
               <h3>Solicitud recibida</h3>
               <p>Te contactamos dentro de las próximas 24 horas hábiles con un horario para visitar tu instalación.</p>
               <p>Revisa el correo de activación en r.donoso@diplomatic.cl para dejar el formulario activo.</p>
-              <div className="meta">Confirmación enviada a {form.empresa || 'tu empresa'}</div>
             </div>
           ) : (
             <form onSubmit={submit} noValidate>
