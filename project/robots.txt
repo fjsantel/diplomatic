@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /Encuesta NPS.html
+Disallow: /Explicacion Sitio e IMDI.html
+Disallow: /IMDI - Cómo funciona.html
+Disallow: /Proceso - Como Trabajamos.html
+Disallow: /Propuesta de Sitio Web.html
+Sitemap: https://diplomatic.cl/sitemap.xml

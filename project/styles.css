@@ -798,7 +798,7 @@ a.svc-tile:hover { background: var(--tint); }
 .form-success .meta { font: 500 12px/1.4 var(--f-mono); color: var(--muted); }
 
 /* === Gallery carousel === */
-.gallery-carousel { position: relative; aspect-ratio: 16/9; border-radius: 4px; overflow: hidden; background: var(--navy); }
+.gallery-carousel { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--navy); }
 .gallery-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1400ms ease; }
 .gallery-slide.active { opacity: 1; }
 .gallery-dots { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 2; }

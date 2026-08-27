@@ -514,8 +514,7 @@ const Gallery = () => {
   }, []);
   return (
     <section className="section" id="galeria">
-      <div className="container">
-        <div className="gallery-carousel">
+      <div className="gallery-carousel">
           {GALLERY_PHOTOS.map((p, idx) => (
             <img key={p.src} src={p.src} alt={p.alt} className={'gallery-slide' + (idx === i ? ' active' : '')} />
           ))}
@@ -524,7 +523,6 @@ const Gallery = () => {
               <button key={idx} className={'gallery-dot' + (idx === i ? ' active' : '')} onClick={() => setI(idx)} aria-label={'Ver foto ' + (idx + 1)}></button>
             ))}
           </div>
-        </div>
       </div>
     </section>
   );
