@@ -685,17 +685,39 @@ const FinalCTA = () => {
   const [form, setForm] = React.useState({nombre: '', empresa: '', telefono: '', mensaje: ''});
   const [err, setErr] = React.useState({});
   const [sent, setSent] = React.useState(false);
+  const [sending, setSending] = React.useState(false);
 
   const set = (k, v) => { setForm(f => ({...f, [k]: v})); setErr(e => ({...e, [k]: null})); };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const next = {};
     if (!form.nombre.trim()) next.nombre = 'Falta tu nombre.';
     if (!form.empresa.trim()) next.empresa = 'Indica la empresa.';
     if (!form.telefono.trim() || form.telefono.replace(/\D/g, '').length < 8) next.telefono = 'Teléfono inválido.';
     if (Object.keys(next).length) { setErr(next); return; }
-    setSent(true);
+    setSending(true);
+    setErr({});
+    try {
+      const response = await fetch('https://formspree.io/f/xppzaebv', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', Accept: 'application/json'},
+        body: JSON.stringify({
+          Nombre: form.nombre,
+          Empresa: form.empresa,
+          Teléfono: form.telefono,
+          Mensaje: form.mensaje || 'Sin mensaje adicional',
+          _subject: 'Nueva solicitud de cotización · Diplomatic',
+          _captcha: 'false',
+        }),
+      });
+      if (!response.ok) throw new Error('No se pudo enviar la solicitud.');
+      setSent(true);
+    } catch (error) {
+      setErr({form: 'No pudimos enviar la solicitud. Inténtalo nuevamente o escríbenos a r.donoso@diplomatic.cl.'});
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -736,6 +758,7 @@ const FinalCTA = () => {
               <span className="check"><Icon.Check/></span>
               <h3>Solicitud recibida</h3>
               <p>Te contactamos dentro de las próximas 24 horas hábiles con un horario para visitar tu instalación.</p>
+              <p>Revisa el correo de activación en r.donoso@diplomatic.cl para dejar el formulario activo.</p>
               <div className="meta">Confirmación enviada a {form.empresa || 'tu empresa'}</div>
             </div>
           ) : (
@@ -763,8 +786,9 @@ const FinalCTA = () => {
                 <textarea id="mensaje" value={form.mensaje} onChange={e => set('mensaje', e.target.value)} placeholder="Tipo de instalación, metros cuadrados, frecuencia esperada…"></textarea>
               </div>
               <button type="submit" className="btn btn-primary on-dark submit">
-                Solicitar cotización gratuita <Icon.Arrow/>
+                {sending ? 'Enviando…' : 'Solicitar cotización gratuita'} {!sending && <Icon.Arrow/>}
               </button>
+              {err.form && <div className="err">{err.form}</div>}
               <div className="legal">Respuesta en menos de 24 h hábiles · Sin compromiso</div>
             </form>
           )}
