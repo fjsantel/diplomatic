@@ -329,8 +329,8 @@ window.BannerCarousel = BannerCarousel;
 /* ---------- Client logo band ---------- */
 const CLIENTS = ['JLL', 'Colliers International', 'Accor', 'Grupo Patio', 'Grupo Security', 'Hotel Cumbres', 'REALSA', 'GeoSinergia', 'Alonso', 'DAG', 'Diversur', 'HOME TEC', 'SADE'];
 
-const ClientBand = () => (
-  <div className="client-band">
+const ClientBand = ({light = false}) => (
+  <div className={'client-band' + (light ? ' client-band-light' : '')}>
     <div className="container client-band-inner">
       <span className="client-band-label">Confían en nosotros</span>
       <div className="marquee" aria-hidden="false">
@@ -444,27 +444,6 @@ const Services = ({servicesVariant='cards'}) => {
 window.Services = Services;
 
 /* ---------- Testimonials ---------- */
-const TESTIMONIALS = [
-  {
-    quote: 'Cambiamos tres proveedores antes de Diplomatic. El IMDI es lo que nos hizo dejar de revisar.',
-    name: 'M. Cárdenas',
-    role: 'Property Manager · Edificio corporativo',
-    co: 'JLL',
-  },
-  {
-    quote: 'Operan sin que el residente los note. Cuando hay una incidencia, ya tienen propuesta de solución antes de la reunión.',
-    name: 'R. Vergara',
-    role: 'Gerente de Administración',
-    co: 'Colliers',
-  },
-  {
-    quote: 'En hotelería el estándar es no improvisar. Diplomatic llega con protocolo escrito, no con buena voluntad.',
-    name: 'P. Soto',
-    role: 'Operations Manager',
-    co: 'Accor',
-  },
-];
-
 const Testimonials = () => (
   <section className="section testi-section" id="clientes">
     <div className="container">
@@ -477,21 +456,8 @@ const Testimonials = () => (
           <p className="lead on-dark">Operaciones inmobiliarias y hoteleras que cambiaron de proveedor — y se quedaron.</p>
         </div>
       </div>
-      <div className="testi-grid">
-        {TESTIMONIALS.map((t, i) => (
-          <article className="testi-card" key={i}>
-            <p className="testi-quote">{t.quote}</p>
-            <div className="testi-author">
-              <div className="who">
-                <div className="name">{t.name}</div>
-                <div className="role">{t.role}</div>
-              </div>
-              <div className="co-logo">{t.co}</div>
-            </div>
-          </article>
-        ))}
-      </div>
     </div>
+    <ClientBand light />
   </section>
 );
 window.Testimonials = Testimonials;

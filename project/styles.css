@@ -402,6 +402,11 @@ a { color: inherit; text-decoration: none; }
 .client-logo:hover { color: #fff; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
+.client-band-light { background: #fff; border-top-color: rgba(13,31,60,0.08); }
+.client-band-light .client-band-label { color: var(--muted); }
+.client-band-light .client-logo { color: var(--accent); }
+.client-band-light .client-logo:hover { color: var(--navy); }
+
 /* Differentiators */
 .diff-grid {
   display: grid; grid-template-columns: 1fr; gap: 32px;
