@@ -517,11 +517,6 @@ const Gallery = () => {
           {GALLERY_PHOTOS.map((p, idx) => (
             <img key={p.src} src={p.src} alt={p.alt} className={'gallery-slide' + (idx === i ? ' active' : '')} />
           ))}
-          <div className="gallery-dots" role="tablist" aria-label="Seleccionar foto">
-            {GALLERY_PHOTOS.map((_, idx) => (
-              <button key={idx} className={'gallery-dot' + (idx === i ? ' active' : '')} onClick={() => setI(idx)} aria-label={'Ver foto ' + (idx + 1)}></button>
-            ))}
-          </div>
       </div>
     </section>
   );
