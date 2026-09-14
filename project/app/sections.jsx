@@ -408,7 +408,7 @@ const Services = ({servicesVariant='cards'}) => {
         <div className="section-head centered">
           <div>
             <span className="eyebrow">Servicios</span>
-            <h2 className="h2 mt-32">Siete frentes de aseo industrial.</h2>
+            <h2 className="h2 mt-32">Siete frentes de aseo profesional.</h2>
           </div>
           <div className="head-aside">
             <p className="lead muted">Cada servicio entrega un resultado verificable. Sin paquetes ambiguos.</p>
