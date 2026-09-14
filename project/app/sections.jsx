@@ -594,7 +594,7 @@ const About = ({compact = false}) => (
           {compact ? (
             <div className="about-tldr">
               <p className="lead" style={{marginBottom: 24}}>
-                Somos una empresa chilena especializada en servicios de aseo industrial profesional y Facility Services. Trabajamos junto a empresas, hoteles, edificios corporativos, centros comerciales e instituciones que buscan un aliado estratégico para mantener espacios seguros, eficientes y preparados para recibir a quienes los utilizan cada día.
+                Somos una empresa chilena especializada en servicios de aseo profesional. Trabajamos junto a empresas, hoteles, edificios corporativos, centros comerciales e instituciones, brindando soluciones de limpieza que permiten mantener espacios seguros, eficientes y preparados para recibir a quienes los utilizan cada día.
               </p>
               <div className="about-pills">
                 <span className="pill"><b>2017</b> Año de fundación</span>
@@ -630,7 +630,7 @@ const About = ({compact = false}) => (
         </div>
         <div className="mv-card">
           <span className="mv-label">Visión</span>
-          <p>Ser una de las empresas de Facility Services más reconocidas de Chile por la calidad de nuestro servicio, la innovación y la confianza que construimos con nuestros clientes.</p>
+          <p>Ser una de las empresas de servicios de aseo profesional más reconocidas de Chile, destacando por la calidad de nuestro trabajo, la innovación y la confianza que construimos con nuestros clientes.</p>
         </div>
       </div>
     </div>
