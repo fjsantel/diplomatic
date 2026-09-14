@@ -407,8 +407,8 @@ const Services = ({servicesVariant='cards'}) => {
       <div className="container">
         <div className="section-head centered">
           <div>
-            <span className="eyebrow">Servicios</span>
-            <h2 className="h2 mt-32">Siete frentes de aseo profesional.</h2>
+            <span className="eyebrow" style={{fontSize: 'clamp(32px, 4.2vw, 52px)'}}>Servicios</span>
+            <h2 className="h2 mt-32" style={{fontSize: 11}}>Siete frentes de aseo profesional.</h2>
           </div>
           <div className="head-aside">
             <p className="lead muted">Cada servicio entrega un resultado verificable. Sin paquetes ambiguos.</p>
