@@ -41,6 +41,7 @@ const Header = () => {
           <Logo />
           <nav className="nav-links" aria-label="Principal">
             {NAV_LINKS.map(l => <a key={l.href} href={l.href}>{l.label}</a>)}
+            <a className="nav-ext" href="https://diplotec.cl" target="_blank" rel="noopener noreferrer">DIPLOTEC ↗</a>
           </nav>
           <div className="nav-cta">
             <a className="nav-phone" href="tel:+56950670318" aria-label="Llamar">
@@ -73,6 +74,10 @@ const Header = () => {
               <Icon.Arrow size={14}/>
             </a>
           ))}
+          <a className="drawer-ext" href="https://diplotec.cl" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+            DIPLOTEC
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
         <div className="drawer-foot">
           <a className="btn btn-secondary" href="tel:+56950670318" style={{justifyContent: 'center'}}>
@@ -802,6 +807,7 @@ const Footer = () => (
             <li><a href="servicio-fachadas.html">Limpieza vertical</a></li>
             <li><a href="servicio-housekeeping.html">Aseo hotelero</a></li>
             <li><a href="index.html#contacto">Sanitización</a></li>
+            <li><a href="https://diplotec.cl" target="_blank" rel="noopener noreferrer">DIPLOTEC ↗</a></li>
           </ul>
         </div>
         <div className="foot-col">
