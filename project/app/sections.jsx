@@ -2,11 +2,11 @@
 
 /* ---------- Logo ---------- */
 const Logo = ({onDark=false}) => (
-  <a href="#top" className="logo" style={onDark ? {color: '#fff'} : null} aria-label="Diplomatic Chile — Servicios de aseo industrial profesional">
+  <a href="#top" className="logo" style={onDark ? {color: '#fff'} : null} aria-label="Diplomatic Chile — Servicios de aseo profesional">
     <img src="assets/brand/logo-gota.webp" alt="" className="logo-mark-img" />
     <span className="logo-text">
       <span className="logo-name logo-name-mont">Diplomatic <span style={{opacity:0.55, fontWeight: 700}}>Chile</span></span>
-      <span className="logo-tagline" style={onDark ? {color: 'rgba(255,255,255,0.55)'} : null}>Servicios de aseo industrial profesional</span>
+      <span className="logo-tagline" style={onDark ? {color: 'rgba(255,255,255,0.55)'} : null}>Servicios de aseo profesional</span>
     </span>
   </a>
 );
@@ -171,7 +171,7 @@ const Hero = ({heroVariant='balanced'}) => {
             <span className="k">Seguro de resp. civil</span>
           </div>
           <div className="hero-stat">
-            <span className="v">13+</span>
+            <span className="v">33+</span>
             <span className="k">Clientes activos</span>
           </div>
         </div>
@@ -332,7 +332,7 @@ const BannerCarousel = () => {
 window.BannerCarousel = BannerCarousel;
 
 /* ---------- Client logo band ---------- */
-const CLIENTS = ['JLL', 'Colliers International', 'Accor', 'Grupo Patio', 'Grupo Security', 'Hotel Cumbres', 'REALSA', 'GeoSinergia', 'Alonso', 'DAG', 'Diversur', 'HOME TEC', 'SADE'];
+const CLIENTS = ['JLL', 'Colliers International', 'Accor', 'Grupo Patio', 'Grupo Security', 'Hotel Cumbres', 'REALSA', 'Alonso', 'DAG'];
 
 const ClientBand = ({light = false}) => (
   <div className={'client-band' + (light ? ' client-band-light' : '')}>
@@ -603,7 +603,7 @@ const About = ({compact = false}) => (
               </p>
               <div className="about-pills">
                 <span className="pill"><b>2017</b> Año de fundación</span>
-                <span className="pill"><b>13+</b> Clientes activos</span>
+                <span className="pill"><b>33+</b> Clientes activos</span>
                 <span className="pill"><b>5.000 UF</b> Resp. civil</span>
               </div>
             </div>
