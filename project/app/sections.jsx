@@ -185,6 +185,7 @@ window.Hero = Hero;
 const PROVIDER_PHOTOS = [
   {src: 'assets/home/Suelo-reflejo1.jpg', alt: 'Piso pulido con reflejo de fachada de edificio'},
   {src: 'assets/home/Suelo-reflejo2.jpg', alt: 'Personal de Diplomatic puliendo piso, con reflejo del trabajo realizado'},
+  {src: 'assets/home/alfombras-tapices.jpg', alt: 'Diplomatic Chile — Limpieza profunda de alfombras y tapices: espacios más limpios, saludables y agradables', fit: true},
 ];
 const ProviderPhotoCarousel = () => {
   const [i, setI] = React.useState(0);
@@ -194,7 +195,11 @@ const ProviderPhotoCarousel = () => {
   }, []);
   return (
     <div className="provider-photo-band">
-      {PROVIDER_PHOTOS.map((p, idx) => (
+      {PROVIDER_PHOTOS.map((p, idx) => p.fit ? (
+        <div key={p.src} className={'provider-photo-slide provider-photo-fit' + (idx === i ? ' active' : '')} style={{'--bg': `url(${p.src})`}}>
+          <img src={p.src} alt={p.alt} />
+        </div>
+      ) : (
         <img key={p.src} src={p.src} alt={p.alt} className={'provider-photo-slide' + (idx === i ? ' active' : '')} />
       ))}
     </div>
